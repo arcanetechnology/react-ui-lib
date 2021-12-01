@@ -1,0 +1,223 @@
+@import '../../vars.scss';
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 16px 24px;
+  border: 2px solid #212529;
+  border-radius: 16px;
+  line-height: 32px;
+  font-weight: 500;
+  font-size: 24px;
+  cursor: pointer;
+
+  &.small {
+    padding: 8px 16px;
+    font-size: 16px;
+    line-height: 24px;
+    border-radius: 8px;
+  }
+
+  @media (max-width: $mobile-width) {
+    padding: 8px 16px;
+    font-size: 16px;
+    line-height: 24px;
+    border-radius: 8px;
+  }
+
+  &.primary.onLight {
+    background-color: #212529;
+    color: white;
+
+    svg {
+      fill: white;
+    }
+
+    &:hover {
+      border-color: #6C757D;
+      background-color: #6C757D;
+    }
+
+    &:focus {
+      box-shadow: 0px 0px 7px #68CDF4;
+    }
+
+    &:active {
+      border-color: #090A0B;
+      background-color: #090A0B;
+      box-shadow: 0px 0px 4px rgba(33, 37, 41, 0.5);
+    }
+
+    &[disabled] {
+      border-color: #CED4DA;
+      background: #CED4DA;
+      filter: blur(0.5px);
+    }
+  }
+
+  &.primary.onDark {
+    background-color: white;
+    border-color: white;
+    color: #212529;
+
+    svg {
+      fill: #212529;
+    }
+
+    &:hover {
+      border-color: #6C757D;
+      background-color: #6C757D;
+      color: white;
+
+      svg {
+        fill: white;
+      }
+    }
+
+    &:focus {
+      background-color: #DEE2E6;
+      border-color: #DEE2E6;
+      box-shadow: 0px 0px 7px #68CDF4;
+      color: #212529;
+
+      svg {
+        fill: #212529;
+      }
+    }
+
+    &:active {
+      border-color: #CED4DA;
+      background-color: #DEE2E6;
+      box-shadow: 0px 0px 4px #FFFFFF;
+      color: #212529;
+
+      svg {
+        fill: #212529;
+      }
+    }
+
+    &[disabled] {
+      border-color: #CED4DA;
+      background: #CED4DA;
+      filter: blur(0.5px);
+      color: white;
+
+      svg {
+        fill: white;
+      }
+    }
+  }
+
+  &.secondary.onDark {
+    background-color: transparent;
+    border-color: white;
+    color: white;
+
+    svg {
+      fill: white;
+    }
+
+    &:hover {
+      border-color: #6C757D;
+      background-color: #6C757D;
+      color: white;
+
+      svg {
+        fill: white;
+      }
+    }
+
+    &:focus {
+      background-color: transparent;
+      border-color: #DEE2E6;
+      color: #DEE2E6;
+      filter: drop-shadow(0px 0px 7px #68CDF4);
+
+      svg {
+        fill: #DEE2E6;
+      }
+    }
+
+    &:active {
+      background-color: #DEE2E6;
+      border-color: #CED4DA;
+      box-shadow: 0px 0px 4px #FFFFFF;
+      color: #212529;
+      filter: none;
+
+      svg {
+        fill: #212529;
+      }
+    }
+
+    &[disabled] {
+      background-color: transparent;
+      border-color: white;
+      color: white;
+      filter: blur(0.5px);
+
+      svg {
+        fill: white;
+      }
+    }
+  }
+
+  &.secondary {
+    background-color: transparent;
+    color: #212529;
+
+    svg {
+      fill: #212529;
+    }
+
+    &:hover {
+      border-color: #6C757D;
+      background-color: #6C757D;
+      color: white;
+
+      svg {
+        fill: white;
+      }
+    }
+
+    &:focus {
+      box-shadow: 0px 0px 7px #68CDF4;
+    }
+
+    &:active {
+      border-color: #090A0B;
+      background-color: #090A0B;
+      box-shadow: 0px 0px 4px rgba(33, 37, 41, 0.5);
+      color: white;
+
+      svg {
+        fill: white;
+      }
+    }
+
+    &[disabled] {
+      border-color: #CED4DA;
+      background-color: #e5e5e5;
+      filter: blur(0.5px);
+      color: white;
+
+      svg {
+        fill: white;
+      }
+    }
+  }
+
+  > i {
+    margin-left: 8px;
+  }
+
+  .iconRight {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 12px;
+    margin-top: -1px;
+  }
+}
