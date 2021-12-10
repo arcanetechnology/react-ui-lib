@@ -1,6 +1,8 @@
 import { addDecorator } from '@storybook/react';
 import { withTests } from '@storybook/addon-jest';
 
+import '../src/global.scss';
+
 import results from './.jest-test-results.json';
 
 addDecorator(

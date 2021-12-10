@@ -51,7 +51,7 @@ export default function Button({
     <button
       type="button"
       className={cn(styles.button, {
-        className: !!className,
+        [className as string]: !!className,
         [styles.small]: small,
         [styles.primary]: !secondary,
         [styles.secondary]: secondary,

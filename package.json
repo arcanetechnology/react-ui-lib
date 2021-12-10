@@ -1,9 +1,13 @@
 {
   "name": "@arcanetechnology/react-ui-lib",
-  "main": "dist/index.tsx",
-  "version": "0.1.1",
+  "module": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "version": "0.2.0",
   "private": false,
-  "files": [ "dist", "README.md" ],
+  "files": [
+    "lib",
+    "README.md"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/arcanetechnology/react-ui-lib.git"
@@ -14,16 +18,13 @@
     "@testing-library/user-event": "^12.1.10"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
     "test": "react-scripts test",
     "test:generate-output": "react-scripts test --json --outputFile=.storybook/.jest-test-results.json --watchAll=false || true",
-    "eject": "react-scripts eject",
     "storybook:no-tests": "start-storybook -p 6006 -s public",
     "storybook": "npm run test:generate-output && npm run storybook:no-tests",
     "build-storybook": "build-storybook -s public",
     "clean": "rimraf dist",
-    "compile": "npm run clean && cross-env NODE_ENV=production babel src/components --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,stories.js,__snapshots__"
+    "build": "rm -rf lib && rollup -c"
   },
   "eslintConfig": {
     "extends": [
@@ -64,8 +65,11 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.16.0",
+    "@babel/plugin-transform-typescript": "^7.16.1",
     "@babel/preset-env": "^7.16.4",
     "@babel/preset-react": "^7.16.0",
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-node-resolve": "^13.0.6",
     "@storybook/addon-actions": "^6.4.1",
     "@storybook/addon-essentials": "^6.4.1",
     "@storybook/addon-jest": "^6.4.3",
@@ -88,6 +92,15 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "postcss": "^8.4.4",
+    "rollup": "^2.61.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-scss": "^3.0.0",
+    "rollup-plugin-typescript2": "^0.31.1",
     "typescript": "^4.5.2"
   }
 }
