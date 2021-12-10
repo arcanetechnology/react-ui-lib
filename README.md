@@ -12,8 +12,8 @@ This component library aims to unify the UI and functionality across the differe
 
   <script src="https://kit.fontawesome.com/8cdc127bcf.js" crossorigin="anonymous"></script>
   ```
-- `import '@arcanetechnology/react-ui-lib/lib/global.css';` at application entry point - to include global styles, including the `Poppins` font
 - `npm install @arcanetechnology/react-ui-lib --save` - to install the library
+- `import '@arcanetechnology/react-ui-lib/lib/global.css';` at application entry point - to include global styles, including the `Poppins` font
 
 ### Components
 
