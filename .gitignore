@@ -25,3 +25,4 @@ yarn-error.log*
 .storybook/.jest-test-results.json
 /dist
 /lib
+/storybook-static

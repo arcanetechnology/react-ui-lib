@@ -9,5 +9,16 @@ module.exports = {
     "@storybook/addon-jest",
     "@storybook/preset-create-react-app"
   ],
-  "framework": "@storybook/react"
+  "framework": "@storybook/react",
+  webpackFinal: config => {
+    return {
+      ...config,
+      plugins: config.plugins.filter(plugin => {
+        if (plugin.constructor.name === 'ESLintWebpackPlugin') {
+          return false
+        }
+        return true
+      }),
+    }
+  },
 }

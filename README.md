@@ -2,7 +2,7 @@
 
 This component library aims to unify the UI and front-end functionality across the different Arcane React applications.
 
-## Usage
+## Install
 
 - Include `Poppins` from Google Fonts and Font Awesome in your global `<head>` section.
   ```
@@ -13,7 +13,10 @@ This component library aims to unify the UI and front-end functionality across t
   <script src="https://kit.fontawesome.com/8cdc127bcf.js" crossorigin="anonymous"></script>
   ```
 - `npm install @arcanetechnology/react-ui-lib --save` - to install the library
-- `import '@arcanetechnology/react-ui-lib/lib/global.css';` at application entry point - to include global styles, including the `Poppins` font
+
+## Usage
+
+- `import '@arcanetechnology/react-ui-lib/lib/global.css';` at application entry point - to include global styles, including the `Poppins` font.
 
 ### Components
 
@@ -25,19 +28,36 @@ All Arcane applications should use common threshold points for respinsive design
 
 - `@import '@arcanetechnology/react-ui-lib/lib/vars.scss';` in your SCSS files to use SCSS variables like `$mobile-width` and `$tablet-width`.
 
-# Development
+## Developing components
 
-## To run storybook locally:
+### To run storybook locally:
 - `npm run storybook`
 
-The project is set up with [create-react-app](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app), which is used when running storybook. Each component uses its own **SCSS modules** and `@testing-library/react` / `jest` unit tests. This makes it possible to develop the component first in your specific Arcane app *(using SCSS modules and @testing-library/react / jest in every Arcane app is strogly recommanded for that reason)* with a rapid pace, and, only when it is production ready and tested, to move it to this library. The move should *iteally* happen transparently without any extra effort.
+A component should in most cases consist of:
+- a folder inside the `components` folder
+- `index.tsx` - the React / Typescript implementation of the component
+- `index.module.scss` - SCSS modules
+- `index.test.js` - Unit tests
+- `index.stories.tsx` - Storybook stories.
+- Exports in `components/index.ts` and `index.ts`.
+
+By implementing the same structure for each Arcane app, it is possible (and recommended) as a front-end developer to first implement the component in the specific Arcane app with a rapid pace, and, only when it is production ready and tested, to move it to this library. The move should *ideally* happen transparently without any extra effort.
+
+## For library maintainers
+
+The project is set up with [create-react-app](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app), which is used when running storybook. The idea is to duplicate Arcane apps' toolchain while developing components.
 
 In order to package the project as a library (ESM & CJS), `rollup.js` is used. `rollup.config.js` defines the configuration that transpiles the `src` folder to the `lib` folder, which is published on NPM.
 
-## Publish a new version
+## Publish a new version on npmjs
 
 - Make a code change
 - commit and push
-- `npm run build`
+- `npm run build-lib`
 - `npm publish`
 - Update application references you are responsible for: `npm install --save @arcanetechnology/react-ui-lib@latest`
+
+## Deploy a new static version of the library
+
+The library is hosted on GitHub Pages (can be hosted on any static server too). To update the static library version:
+- `npm run deploy-storybook` - it builds a static assets to the `storybook-static` folder and deploys it to GitHub Pages. It is accessible on https://arcanetechnology.github.io/react-ui-lib/.
