@@ -1,5 +1,7 @@
 # Arcane UI Library for React applications
 
+https://arcanetechnology.github.io/react-ui-lib/
+
 This component library aims to unify the UI and front-end functionality across the different Arcane React applications.
 
 ## Install
