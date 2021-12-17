@@ -1,5 +1,6 @@
-import { Button } from './components';
+import { Button, PageBackground } from './components';
 
 export {
-  Button
+  Button,
+  PageBackground
 };

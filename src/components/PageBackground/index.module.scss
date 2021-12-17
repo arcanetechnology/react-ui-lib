@@ -1,0 +1,34 @@
+@import '../../vars.scss';
+@import './images.scss';
+
+.pageBackground {
+  overflow: hidden;
+
+  background:
+    url($bg1) no-repeat right top,
+    url($bg2) no-repeat left 364px,
+    url($bg3) no-repeat right 1270px,
+    url($bg4) no-repeat left 3430px,
+    url($bg5) no-repeat right 5180px;
+
+  @media (max-width: $tablet-width) {
+    background:
+      url($bg1t) no-repeat right top,
+      url($bg2t) no-repeat left 364px,
+      url($bg3t) no-repeat right 1020px,
+      url($bg4t) no-repeat left 2250px,
+      url($bg5t) no-repeat right 4150px;
+  }
+
+  @media (max-width: $mobile-width) {
+    background:
+      url($bg1m) no-repeat right top,
+      url($bg2m) no-repeat left 260px,
+      url($bg3m) no-repeat right 740px,
+      url($bg4m) no-repeat left 1340px,
+      url($bg5m) no-repeat right 2430px,
+      url($bg6m) no-repeat left 3400px,
+      url($bg7m) no-repeat right 4200px,
+      url($bg8m) no-repeat right 5400px;
+  }
+}

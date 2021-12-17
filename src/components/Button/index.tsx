@@ -38,6 +38,9 @@ export interface Props {
   [propName: string]: any;
 }
 
+/**
+ * Arcane brand button.
+ */
 export default function Button({
   children,
   className,
