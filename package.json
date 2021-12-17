@@ -4,7 +4,7 @@
   "module": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "main": "./lib/index.cjs.js",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "private": false,
   "files": [
     "lib",
@@ -15,6 +15,7 @@
     "url": "https://github.com/arcanetechnology/react-ui-lib.git"
   },
   "dependencies": {
+    "@babel/runtime": "^7.16.5",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -27,8 +28,9 @@
     "storybook": "npm run test:generate-output && npm run storybook:no-tests",
     "build-lib": "rm -rf lib && rollup -c",
     "build-static": "build-storybook",
-    "predeploy": "npm run build-static",
-    "deploy-storybook": "gh-pages -d storybook-static"
+    "predeploy-storybook": "npm run build-static",
+    "deploy-storybook": "gh-pages -d storybook-static",
+    "release": "npm run build-lib && npm publish && npm run deploy-storybook"
   },
   "eslintConfig": {
     "extends": [

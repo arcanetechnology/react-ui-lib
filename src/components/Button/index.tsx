@@ -1,6 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 import styles from './index.module.scss';
+import ArrowRight from '../../svg/ArrowRight';
 
 export interface Props {
   /**
@@ -64,7 +65,7 @@ export default function Button({
         {children}
 
         {arrowRight && (
-          <i className="fal fa-arrow-right" />
+          <ArrowRight />
         )}
 
         {iconRight && (

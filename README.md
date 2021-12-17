@@ -6,13 +6,11 @@ This component library aims to unify the UI and front-end functionality across t
 
 ## Install
 
-- Include `Poppins` from Google Fonts and Font Awesome in your global `<head>` section.
+- Include `Poppins` from Google Fonts in your global `<head>` section.
   ```
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <script src="https://kit.fontawesome.com/8cdc127bcf.js" crossorigin="anonymous"></script>
   ```
 - `npm install @arcanetechnology/react-ui-lib --save` - to install the library
 
@@ -63,3 +61,7 @@ In order to package the project as a library (ESM & CJS), `rollup.js` is used. `
 
 The library is hosted on GitHub Pages (can be hosted on any static server too). To update the static library version:
 - `npm run deploy-storybook` - it builds a static assets to the `storybook-static` folder and deploys it to GitHub Pages. It is accessible on https://arcanetechnology.github.io/react-ui-lib/.
+
+## Release = Publish + Deploy
+
+- `npm run release`
