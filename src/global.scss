@@ -1,3 +1,47 @@
 html, body, button, textarea, input {
   font-family: 'Poppins', sans-serif;
 }
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body.noscroll {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: scroll;
+}
+
+ul, li, h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+input {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+[role=button] {
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+}
