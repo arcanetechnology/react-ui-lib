@@ -23,29 +23,6 @@ This component library aims to unify the UI and front-end functionality across t
   - For **create-react-app** applications, you may provide the react-router `Link` component. Note that the react-router `Link` accept a `to` instead of `href` prop, so we need to handle that in our application.
     ```javascript
     import { ArcaneUIProvider } from '@arcanetechnology/react-ui-lib';
-    import Link from 'next/link';
-
-    export default function MyApp({ Component, pageProps }) {
-      return (
-        <ArcaneUIProvider LinkComponent={NextLink}>
-          <Component {...pageProps} />)
-        </ArcaneUIProvider>
-      );
-    }
-
-    function NextLink({ href, children, ...props }) {
-      return (
-        <Link href={href} {...props}>
-          <a href={href} {...props}>
-            {children}
-          </a>
-        </Link>
-      );
-    }
-    ```
-  - For **next.js** applications, you may provide the next.js `Link` component.
-    ```javascript
-    import { ArcaneUIProvider } from '@arcanetechnology/react-ui-lib';
     import { Link, BrowserRouter as Router } from 'react-router-dom';
 
     export default function App() {
@@ -62,6 +39,29 @@ This component library aims to unify the UI and front-end functionality across t
       return (
         <Link to={href} {...props}>
           {children}
+        </Link>
+      );
+    }
+    ```
+  - For **next.js** applications, you may provide the next.js `Link` component.
+    ```javascript
+    import { ArcaneUIProvider } from '@arcanetechnology/react-ui-lib';
+    import Link from 'next/link';
+
+    export default function MyApp({ Component, pageProps }) {
+      return (
+        <ArcaneUIProvider LinkComponent={NextLink}>
+          <Component {...pageProps} />)
+        </ArcaneUIProvider>
+      );
+    }
+
+    function NextLink({ href, children, ...props }) {
+      return (
+        <Link href={href} {...props}>
+          <a href={href} {...props}>
+            {children}
+          </a>
         </Link>
       );
     }
