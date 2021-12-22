@@ -1,0 +1,9 @@
+.linkedin-icon {
+  border: 1px dashed #cacaca;
+}
+.linkedin-icon svg {
+  fill: black;
+}
+.linkedin-icon:hover svg {
+  fill: red;
+}

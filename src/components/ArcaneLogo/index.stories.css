@@ -1,0 +1,8 @@
+.custom-logo-styles {
+  width: 600px;
+  height: 200px;
+}
+
+.custom-logo-styles svg {
+  fill: red;
+}

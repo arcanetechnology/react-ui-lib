@@ -1,0 +1,116 @@
+@import '../../vars.scss';
+
+$top-bar-height: 136px;
+$top-bar-mobile-height: 88px;
+
+.fakeTopBar {
+  display: flex;
+  width: 100%;
+  height: $top-bar-height;
+
+  @media (max-width: $mobile-width) {
+    height: $top-bar-mobile-height;
+  }
+}
+
+.topBar {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: $top-bar-height;
+  padding: 0 112px;
+
+  @media (max-width: $tablet-width) {
+    padding: 0 48px;
+  }
+
+  @media (max-width: $mobile-width) {
+    padding: 0 16px;
+    height: $top-bar-mobile-height;
+  }
+
+  &.sticky {
+    position: fixed;
+    z-index: 99;
+    top: -$top-bar-height;
+    left: 0;
+    right: 0;
+    background-color: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    animation: slidein 0.3s forwards;
+
+    @keyframes slidein {
+      from {
+        top: -$top-bar-height;
+      }
+
+      to {
+        top: 0;
+      }
+    }
+  }
+
+  .logo {
+    margin-right: 104px;
+
+    @media (max-width: $tablet-width) {
+      margin-right: 0px;
+    }
+  }
+
+  .menuLinks {
+    display: flex;
+
+    @media (max-width: $tablet-width) {
+      display: none;
+    }
+
+    > div {
+      align-items: center;
+      margin-right: 48px;
+    }
+  }
+
+  .button {
+    position: absolute;
+    top: 50%;
+    right: 112px;
+    transform: translateY(-50%);
+    opacity: 0;
+    animation: appear 0.3s forwards;
+
+    @keyframes appear {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    @media (max-width: $tablet-width) {
+      right: 96px;
+    }
+
+    @media (max-width: $mobile-width) {
+      display: none;
+    }
+  }
+
+  .menuWrapper {
+    position: absolute;
+    right: 36px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    @media (max-width: $mobile-width) {
+      right: 4px;
+    }
+
+    svg {
+      width: 40px;
+      height: 40px;
+
+      @media (max-width: $mobile-width) {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+}

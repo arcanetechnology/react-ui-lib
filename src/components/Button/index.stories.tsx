@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react';
 import Button, { Props } from './index';
 
 export default {
-  title: 'Example/Button',
+  title: 'Components/Button',
   component: Button,
   argTypes: {
     onDark: { control: 'boolean', defaultValue: false },
