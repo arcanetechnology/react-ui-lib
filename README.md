@@ -19,9 +19,59 @@ This component library aims to unify the UI and front-end functionality across t
 ### Prerequisites
 
 - `import '@arcanetechnology/react-ui-lib/lib/global.css';` at application entry point - to include global styles, including the `Poppins` font.
-- Wrap your React application inside the `ArcaneUIProvider` component, providing the `Link` component the application uses.
+- Wrap your React application inside the `ArcaneUIProvider` component, providing the `Link` component the application uses. The `Link` component should accept a `href` prop.
+  - For **create-react-app** applications, you may provide the react-router `Link` component. Note that the react-router `Link` accept a `to` instead of `src` prop, so we need to handle that in our application.
+    ```javascript
+    import { ArcaneUIProvider } from '@arcanetechnology/react-ui-lib';
+    import Link from 'next/link';
 
-For create-react-app applications, you may provide the react-router `Link` component. For next.js applications, you may provide the next.js `Link` component. The `Link` should have a `href` prop to accept a link.
+    export default function MyApp({ Component, pageProps }) {
+      return (
+        <ArcaneUIProvider LinkComponent={NextLink}>
+          <Component {...pageProps} />)
+        </ArcaneUIProvider>
+      );
+    }
+
+    function NextLink({ href, children, ...props }) {
+      return (
+        <Link href={href} {...props}>
+          <a href={href} {...props}>
+            {children}
+          </a>
+        </Link>
+      );
+    }
+    ```
+  - For **next.js** applications, you may provide the next.js `Link` component.
+    ```javascript
+    import { ArcaneUIProvider } from '@arcanetechnology/react-ui-lib';
+    import { Link, BrowserRouter as Router } from 'react-router-dom';
+
+    export default function App() {
+      return (
+        <Router>
+          <ArcaneUIProvider LinkComponent={RouterLink}>
+            <MyApp />
+          </ArcaneUIProvider>
+        </Router>
+      );
+    }
+
+    function RouterLink({ href, children, ...props }) {
+      return (
+        <Link to={href} {...props}>
+          {children}
+        </Link>
+      );
+    }
+    ```
+  - You can also use the basic &lt;a&gt; tag (e.g. for unit tests)
+    ```javascript
+    <ArcaneUIProvider LinkComponent={({...props}) => (<a {...props} />)}>
+      // ...
+    </ArcaneUIProvider>
+    ```
 
 ### Components
 
