@@ -20,7 +20,7 @@ This component library aims to unify the UI and front-end functionality across t
 
 - `import '@arcanetechnology/react-ui-lib/lib/global.css';` at application entry point - to include global styles, including the `Poppins` font.
 - Wrap your React application inside the `ArcaneUIProvider` component, providing the `Link` component the application uses. The `Link` component should accept a `href` prop.
-  - For **create-react-app** applications, you may provide the react-router `Link` component. Note that the react-router `Link` accept a `to` instead of `src` prop, so we need to handle that in our application.
+  - For **create-react-app** applications, you may provide the react-router `Link` component. Note that the react-router `Link` accept a `to` instead of `href` prop, so we need to handle that in our application.
     ```javascript
     import { ArcaneUIProvider } from '@arcanetechnology/react-ui-lib';
     import Link from 'next/link';
