@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { LinkContext } from "../../ArcaneUIProvider";
+import React from "react";
+import useLinkComponent from "../../hooks/useLinkComponent";
 
 export interface Props {
   /**
@@ -26,11 +26,7 @@ export interface Props {
  * This component is usually a building block for other components and does not bring its own styles.
  */
 export default function Clickable({ href, children, ...props }: Props) {
-  const LinkComponent = useContext<React.ComponentType<any> | null>(LinkContext);
-
-  if (!LinkComponent) {
-    throw new Error('LinkComponent not provided in ArcaneUIProvider. Wrap your application inside an ArcaneUIProvider component.')
-  }
+  const LinkComponent = useLinkComponent();
 
   return href
     ? props.target

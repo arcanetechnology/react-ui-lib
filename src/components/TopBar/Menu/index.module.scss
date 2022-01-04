@@ -1,0 +1,29 @@
+.appList {
+  display: flex;
+
+  > li {
+    margin-right: 40px;
+    opacity: 0.2;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    color: #090A0B;
+
+    &.active {
+      opacity: 1;
+    }
+
+    a {
+      display: block;
+      color: #090A0B;
+    }
+
+    &:last-child {
+      margin-right: 0px;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

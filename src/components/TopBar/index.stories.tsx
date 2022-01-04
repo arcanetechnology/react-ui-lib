@@ -16,7 +16,8 @@ const Template: Story<Props> = (args) => (
 export const Default = Template.bind({});
 
 Default.args = {
-  onMenuOpen: () => { alert('Menu Open Handler'); }
+  homeUrl: '/',
+  origin: 'https://arcane.no'
 };
 Default.parameters = {
   layout: 'fullscreen',
@@ -30,7 +31,7 @@ const StickyTopBarTemplate: Story<Props> = (args) => (
       <p>This is a long component below the TopBar</p>
       <p>Scroll this page to see the sticky top bar in action</p>
       {Array(100).fill(null).map((_, i) => (
-        <p>{i}</p>
+        <p key={i}>{i}</p>
       ))}
     </div>
   </div>
@@ -39,7 +40,8 @@ const StickyTopBarTemplate: Story<Props> = (args) => (
 export const StickyTopBar = StickyTopBarTemplate.bind({});
 
 StickyTopBar.args = {
-  onMenuOpen: () => { alert('Menu Open Handler'); }
+  homeUrl: '/',
+  origin: 'https://arcane.no'
 };
 StickyTopBar.parameters = {
   layout: 'fullscreen',
