@@ -4,6 +4,7 @@ import Clickable from './components/Clickable';
 import ClickableIcon from './components/ClickableIcon';
 import PageBackground from './components/PageBackground';
 import TopBar from './components/TopBar';
+import ContentfulRichText from './components/ContentfulRichText';
 
 import ArcaneUIProvider from './ArcaneUIProvider';
 
@@ -14,5 +15,6 @@ export {
   ClickableIcon,
   PageBackground,
   TopBar,
-  ArcaneUIProvider
+  ArcaneUIProvider,
+  ContentfulRichText
 };

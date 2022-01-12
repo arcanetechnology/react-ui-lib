@@ -1,0 +1,285 @@
+{
+  "json": {
+      "data": {},
+      "content": [
+          {
+              "data": {},
+              "content": [
+                  {
+                      "data": {},
+                      "content": [
+                          {
+                              "data": {},
+                              "content": [
+                                  {
+                                      "data": {},
+                                      "marks": [],
+                                      "value": "For the metaverse to become truly immersive, the quality of the graphics will have to rival big-budget Hollywood movies",
+                                      "nodeType": "text"
+                                  }
+                              ],
+                              "nodeType": "paragraph"
+                          }
+                      ],
+                      "nodeType": "list-item"
+                  },
+                  {
+                      "data": {},
+                      "content": [
+                          {
+                              "data": {},
+                              "content": [
+                                  {
+                                      "data": {},
+                                      "marks": [],
+                                      "value": "A quintessential facet of Web3 is individual ownership of assets, so companies that provide or facilitate transactions of digital assets will have a role to play  ",
+                                      "nodeType": "text"
+                                  }
+                              ],
+                              "nodeType": "paragraph"
+                          }
+                      ],
+                      "nodeType": "list-item"
+                  }
+              ],
+              "nodeType": "unordered-list"
+          },
+          {
+              "data": {},
+              "content": [
+                  {
+                      "data": {},
+                      "marks": [],
+                      "value": "So, you want to invest in the metaverse, but — as we covered in",
+                      "nodeType": "text"
+                  },
+                  {
+                      "data": {
+                          "uri": "https://blockworks.co/dreaming-of-the-perfect-metaverse-etf-part-1/"
+                      },
+                      "content": [
+                          {
+                              "data": {},
+                              "marks": [],
+                              "value": " ",
+                              "nodeType": "text"
+                          },
+                          {
+                              "data": {},
+                              "marks": [
+                                  {
+                                      "type": "underline"
+                                  }
+                              ],
+                              "value": "part 1",
+                              "nodeType": "text"
+                          }
+                      ],
+                      "nodeType": "hyperlink"
+                  },
+                  {
+                      "data": {},
+                      "marks": [],
+                      "value": " — the Solactive Global Metaverse Index includes some companies that are irrelevant or nearly so. With that in mind, what should belong in a metaverse investors portfolio?",
+                      "nodeType": "text"
+                  }
+              ],
+              "nodeType": "paragraph"
+          },
+          {
+              "data": {},
+              "content": [
+                  {
+                      "data": {},
+                      "marks": [],
+                      "value": "Here’s a slate of companies and projects that are worth a closer look.",
+                      "nodeType": "text"
+                  }
+              ],
+              "nodeType": "paragraph"
+          },
+          {
+              "data": {},
+              "content": [
+                  {
+                      "data": {},
+                      "marks": [
+                          {
+                              "type": "bold"
+                          }
+                      ],
+                      "value": "What to double-down on",
+                      "nodeType": "text"
+                  }
+              ],
+              "nodeType": "heading-2"
+          },
+          {
+              "data": {},
+              "content": [
+                  {
+                      "data": {},
+                      "marks": [
+                          {
+                              "type": "bold"
+                          }
+                      ],
+                      "value": "Game engine developers, e.g. Epic Games and Unity ",
+                      "nodeType": "text"
+                  }
+              ],
+              "nodeType": "heading-3"
+          },
+          {
+              "data": {},
+              "content": [
+                  {
+                      "data": {},
+                      "marks": [],
+                      "value": "If the metaverse is going to be about exploring virtual worlds with headsets, there needs to be a precursor: good VR games.",
+                      "nodeType": "text"
+                  }
+              ],
+              "nodeType": "paragraph"
+          },
+          {
+              "data": {},
+              "content": [
+                  {
+                      "data": {},
+                      "marks": [],
+                      "value": "Behind the vast majority of virtual experiences, there are one of two game engines to watch: Epic Games’ Unreal and Unity’s game engine. I say virtual experiences — not games — because in the last few years we’ve seen an evolving role for this technology that goes beyond just powering games. These two game engines have evolved to a point where they can create photo-realistic imagery that rivals pre-rendered computer animation.",
+                      "nodeType": "text"
+                  }
+              ],
+              "nodeType": "paragraph"
+          },
+          {
+              "data": {},
+              "content": [
+                  {
+                      "data": {},
+                      "marks": [],
+                      "value": "In “",
+                      "nodeType": "text"
+                  },
+                  {
+                      "data": {
+                          "uri": "https://disneyplusoriginals.disney.com/show/the-mandalorian"
+                      },
+                      "content": [
+                          {
+                              "data": {},
+                              "marks": [
+                                  {
+                                      "type": "underline"
+                                  }
+                              ],
+                              "value": "The Mandalorian",
+                              "nodeType": "text"
+                          }
+                      ],
+                      "nodeType": "hyperlink"
+                  },
+                  {
+                      "data": {},
+                      "marks": [],
+                      "value": ",” Disney+ animators used Unreal to create the series’ visual effects for everything from spaceships in the stars to virtual backgrounds that extended sets. ",
+                      "nodeType": "text"
+                  }
+              ],
+              "nodeType": "paragraph"
+          },
+          {
+              "data": {},
+              "content": [
+                  {
+                      "data": {},
+                      "marks": [],
+                      "value": "Unreal’s rival Unity completed the acquisition of Peter Jackson’s",
+                      "nodeType": "text"
+                  },
+                  {
+                      "data": {
+                          "uri": "https://advanced-television.com/2021/12/02/unity-completes-weta-digital-acquisition/"
+                      },
+                      "content": [
+                          {
+                              "data": {},
+                              "marks": [],
+                              "value": " ",
+                              "nodeType": "text"
+                          },
+                          {
+                              "data": {},
+                              "marks": [
+                                  {
+                                      "type": "underline"
+                                  }
+                              ],
+                              "value": "visual effects house Weta Digital",
+                              "nodeType": "text"
+                          }
+                      ],
+                      "nodeType": "hyperlink"
+                  },
+                  {
+                      "data": {},
+                      "marks": [],
+                      "value": " in late November, demonstrating just how determined they are to develop this new vertical. ",
+                      "nodeType": "text"
+                  }
+              ],
+              "nodeType": "paragraph"
+          },
+          {
+              "data": {},
+              "content": [
+                  {
+                      "data": {},
+                      "marks": [],
+                      "value": "While there are other game engines out there, Unreal and Unity",
+                      "nodeType": "text"
+                  },
+                  {
+                      "data": {
+                          "uri": "https://www.valuecoders.com/blog/technology-and-apps/unreal-engine-vs-unity-3d-games-development/"
+                      },
+                      "content": [
+                          {
+                              "data": {},
+                              "marks": [],
+                              "value": " ",
+                              "nodeType": "text"
+                          },
+                          {
+                              "data": {},
+                              "marks": [
+                                  {
+                                      "type": "underline"
+                                  }
+                              ],
+                              "value": "dominate",
+                              "nodeType": "text"
+                          }
+                      ],
+                      "nodeType": "hyperlink"
+                  },
+                  {
+                      "data": {},
+                      "marks": [],
+                      "value": " the market share because they are open platforms and agnostic to users while other game engines are proprietary and locked behind walled gardens. For this reason, they are the platforms that interoperable virtual experiences will be built upon.",
+                      "nodeType": "text"
+                  }
+              ],
+              "nodeType": "paragraph"
+          }
+      ],
+      "nodeType": "document"
+  },
+  "links": {
+      "assets": {
+          "block": []
+      }
+  }
+}
