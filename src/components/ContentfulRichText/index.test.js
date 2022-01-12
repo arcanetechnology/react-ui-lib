@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 import ContentfulRichText from './index';
 import textData from './text-data.json';
 
-describe('Button', () => {
+describe('ContentfulRichText', () => {
   test('renders the rich text correctly', async () => {
     const component = render(
       <ContentfulRichText text={textData} />
