@@ -108,6 +108,7 @@ $top-bar-sticky-height: 88px;
     height: 40px;
     line-height: 0;
     border-radius: 100%;
+    z-index: 1000;
     cursor: pointer;
 
     @media (max-width: $mobile-width) {
