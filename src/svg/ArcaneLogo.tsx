@@ -3,8 +3,6 @@
 export default function ArcaneLogo() {
   return (
     <svg
-      width="174"
-      height="30"
       viewBox="0 0 174 30"
       xmlns="http://www.w3.org/2000/svg"
     >
