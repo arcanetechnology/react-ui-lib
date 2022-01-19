@@ -81,6 +81,14 @@ $top-bar-sticky-height: 88px;
     z-index: 1000;
     cursor: pointer;
 
+    &.noAuthButton {
+      right: 112px;
+
+      @media (max-width: $tablet-width) {
+        right: 48px;
+      }
+    }
+
     @media (max-width: $tablet-width) {
       right: 166px;
     }

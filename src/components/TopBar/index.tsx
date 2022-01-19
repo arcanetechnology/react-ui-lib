@@ -62,7 +62,7 @@ export default function TopBar({ homeUrl, origin, activeItem, noAuthButton }: Pr
         </LinkComponent>
 
         <button
-          className={cn(styles.menuWrapper, { [styles.open]: isMenuOpen })}
+          className={cn(styles.menuWrapper, { [styles.open]: isMenuOpen, [styles.noAuthButton]: noAuthButton })}
           onClick={toggleMenu}
           data-testid="grid"
         >
