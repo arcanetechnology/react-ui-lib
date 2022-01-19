@@ -9,6 +9,10 @@ import ContentfulImage from './components/ContentfulImage';
 
 import ArcaneUIProvider from './ArcaneUIProvider';
 
+import AuthProvider from './components/@authentication/AuthProvider';
+import useUser from './components/@authentication/useUser';
+import SignInSignOutButton from './components/@authentication/SignInSignOutButton';
+
 export {
   ArcaneLogo,
   Button,
@@ -16,7 +20,12 @@ export {
   ClickableIcon,
   PageBackground,
   TopBar,
-  ArcaneUIProvider,
   ContentfulRichText,
-  ContentfulImage
+  ContentfulImage,
+
+  ArcaneUIProvider,
+
+  AuthProvider,
+  useUser,
+  SignInSignOutButton
 };
