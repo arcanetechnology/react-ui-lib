@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, createContext } from 'react';
+import { useEffect, useState, createContext } from 'react';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import useWhoAmI from './useWhoAmI';
 
@@ -22,10 +22,6 @@ export default function AuthProvider({ children }: Props) {
   const [user, setUser] = useState<any>({ loading: true });
   const [token, setToken] = useState<string | undefined>();
 
-  const auth = useMemo(() => (
-    getAuth()
-  ), []);
-
   const userData = useWhoAmI(token);
 
   useEffect(() => {
@@ -40,7 +36,7 @@ export default function AuthProvider({ children }: Props) {
   }, [userData]);
 
   useEffect(() => {
-    onAuthStateChanged(auth, (u: any) => {
+    onAuthStateChanged(getAuth(), (u: any) => {
       u === null
         ? setUser(null)
         : setToken(u.accessToken);

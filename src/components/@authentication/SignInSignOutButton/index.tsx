@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import { getAuth, signOut } from 'firebase/auth';
 import Button from '../../Button';
 import useUser from '../useUser';
@@ -24,12 +23,8 @@ export default function SignInSignOutButton({ className, ...props }: Props) {
   const LinkComponent = useLinkComponent();
   const user = useUser();
 
-  const auth = useMemo(() => (
-    getAuth()
-  ), []);
-
   const handleSignOut = () => {
-    signOut(auth);
+    signOut(getAuth());
   };
 
   if (typeof window === 'undefined') { // return null on server-side
