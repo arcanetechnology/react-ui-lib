@@ -24,8 +24,6 @@ export default function SignInSignOutButton({ className, ...props }: Props) {
   const LinkComponent = useLinkComponent();
   const user = useUser();
 
-  console.log('user', user);
-
   const auth = useMemo(() => (
     getAuth()
   ), []);

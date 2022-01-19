@@ -6,7 +6,7 @@ import cn from 'classnames';
 import GridMenu from '../../svg/GridMenu';
 import useLinkComponent from '../../hooks/useLinkComponent';
 import Menu from './Menu';
-// import SignInSignOutButton from 'components/SignInSignOutButton';
+import SignInSignOutButton from '../@authentication/SignInSignOutButton';
 
 const STICKY_THRESHOLD = 136;
 
@@ -23,12 +23,16 @@ export interface Props {
    * The current active menu item
    */
   activeItem?: 'Research' | 'Trade' | 'Invest';
+  /**
+   * If true, hides the SignInSignOutButton
+   */
+  noAuthButton?: boolean;
 }
 
 /**
  * Application top bar with Arcane logo and grid menu.
  */
-export default function TopBar({ homeUrl, origin, activeItem }: Props) {
+export default function TopBar({ homeUrl, origin, activeItem, noAuthButton }: Props) {
   const LinkComponent = useLinkComponent();
 
   const [isSticky, setIsSticky] = useState(false);
@@ -57,8 +61,6 @@ export default function TopBar({ homeUrl, origin, activeItem }: Props) {
           <ArcaneLogo className={styles.logo} />
         </LinkComponent>
 
-        {/* <SignInSignOutButton className={styles.button} /> */}
-
         <button
           className={cn(styles.menuWrapper, { [styles.open]: isMenuOpen })}
           onClick={toggleMenu}
@@ -75,6 +77,10 @@ export default function TopBar({ homeUrl, origin, activeItem }: Props) {
             />
           </div>
         </button>
+
+        {!noAuthButton && (
+          <SignInSignOutButton className={styles.authButton} />
+        )}
       </div>
     </>
   );

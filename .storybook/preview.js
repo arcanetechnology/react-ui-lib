@@ -6,6 +6,16 @@ import '../src/global.scss';
 
 import results from './.jest-test-results.json';
 
+import { initializeApp } from 'firebase/app';
+
+if (!window.firebaseInitialized) {
+  initializeApp({
+    apiKey: 'MOCK_KEY'
+  });
+
+  window.firebaseInitialized = true;
+}
+
 addDecorator(
   withTests({
     results,

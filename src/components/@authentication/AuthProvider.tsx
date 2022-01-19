@@ -9,7 +9,7 @@ export interface Props {
   children: React.ReactNode;
 }
 
-export const AuthContext = createContext({});
+export const AuthContext = createContext(null);
 
 /**
  * Wrap all components in this provider to access the current authentication state and user details by using the useUser hook.

@@ -56,14 +56,6 @@ $top-bar-sticky-height: 88px;
     }
   }
 
-  .logo {
-    margin-right: 104px;
-
-    @media (max-width: $tablet-width) {
-      margin-right: 0px;
-    }
-  }
-
   .menuLinks {
     display: flex;
 
@@ -77,32 +69,10 @@ $top-bar-sticky-height: 88px;
     }
   }
 
-  .button {
-    position: absolute;
-    top: 50%;
-    right: 112px;
-    transform: translateY(-50%);
-    opacity: 0;
-    animation: appear 0.3s forwards;
-
-    @keyframes appear {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-    }
-
-    @media (max-width: $tablet-width) {
-      right: 96px;
-    }
-
-    @media (max-width: $mobile-width) {
-      display: none;
-    }
-  }
-
   .menuWrapper {
     position: absolute;
-    right: 36px;
     top: 50%;
+    right: 230px;
     transform: translateY(-50%);
     width: 40px;
     height: 40px;
@@ -110,6 +80,10 @@ $top-bar-sticky-height: 88px;
     border-radius: 100%;
     z-index: 1000;
     cursor: pointer;
+
+    @media (max-width: $tablet-width) {
+      right: 166px;
+    }
 
     @media (max-width: $mobile-width) {
       right: 4px;
@@ -142,6 +116,28 @@ $top-bar-sticky-height: 88px;
     svg {
       width: 16px;
       height: 16px;
+    }
+  }
+
+  .authButton {
+    position: absolute;
+    right: 112px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    animation: appear 0.3s forwards;
+
+    @keyframes appear {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    @media (max-width: $tablet-width) {
+      right: 48px;
+    }
+
+    @media (max-width: $mobile-width) {
+      display: none;
     }
   }
 }
