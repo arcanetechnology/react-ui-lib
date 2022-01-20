@@ -16,7 +16,6 @@ export const AuthContext = createContext(null);
  *
  * Prerequisites:
  *   - firebase must be initialized: call initializeApp(firebaseConfig)
- *   - react-query must be initialized: wrap the AuthProvider in a QueryClientProvider
  */
 export default function AuthProvider({ children }: Props) {
   const [user, setUser] = useState<any>({ loading: true });

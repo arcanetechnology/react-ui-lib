@@ -1,15 +1,19 @@
-import { useQuery } from 'react-query';
+import { useEffect, useState } from 'react';
 
 /**
  * Calls the "Who am I" endpoint with the given firebase token, returns user details.
  */
 const useWhoAmI = (token) => {
-  const { data } = useQuery(
-    ['whoami', token],
-    () => (
-      token && callWhoAmI({ token })
-    )
-  );
+  const [data, setData] = useState();
+
+  useEffect(() => {
+    async function fetchData() {
+      const data = await callWhoAmI({ token });
+      setData(data);
+    }
+
+    token && fetchData();
+  }, [token]);
 
   if (!data) {
     return null;
