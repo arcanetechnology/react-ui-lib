@@ -93,6 +93,8 @@ If an app uses authentication, it should also be wrapped inside `AuthProvider`:
 </AuthProvider>
 ```
 
+Firebase needs to be initialized: call `initializeApp(firebaseConfig)`.
+
 You can then use the `<SignInSignOutButton>` component to authenticate / log out, and the `useUser` custom hook to access the current user.
 
 ## Developing components
