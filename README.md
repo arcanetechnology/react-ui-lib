@@ -83,6 +83,18 @@ All Arcane applications should use common threshold points for respinsive design
 
 - `@import '@arcanetechnology/react-ui-lib/lib/vars.scss';` in your SCSS files to use SCSS variables like `$mobile-width` and `$tablet-width`.
 
+### Authentication
+
+If an app uses authentication, it should also be wrapped inside `AuthProvider`:
+
+```javascript
+<AuthProvider>
+  <App />
+</AuthProvider>
+```
+
+You can then use the `<SignInSignOutButton>` component to authenticate / log out, and the `useUser` custom hook to access the current user.
+
 ## Developing components
 
 ### To run storybook locally:

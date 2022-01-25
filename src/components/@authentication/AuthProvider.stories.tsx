@@ -2,7 +2,6 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import AuthProvider, { Props } from './AuthProvider';
 import useUser from './useUser';
-import SignInSignOutButton from './SignInSignOutButton';
 
 export default {
   title: 'Authentication/AuthProvider',
@@ -23,11 +22,6 @@ const App = () => {
 const Template: Story<Props> = (args) => (
   <AuthProvider>
     <App />
-
-    <div style={{ marginTop: '30px' }}>
-      <p>&lt;SignInSignOutButton&gt;: In order to work, the Platform App should be deployed on the same domain as the application hosting this button</p>
-      <SignInSignOutButton />
-    </div>
   </AuthProvider>
 );
 

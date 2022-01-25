@@ -18,6 +18,8 @@ export interface Props {
 /**
  * A button to sign in when the user is not authenticated.
  * When the user is authenticated, changes to a sign out button.
+ *
+ * It redirects to <current_domain>/auth, where the Platform App should be hosted for authentication to work correctly.
  */
 export default function SignInSignOutButton({ className, ...props }: Props) {
   const LinkComponent = useLinkComponent();
