@@ -75,6 +75,10 @@ export default function TopBar({ homeUrl, origin, activeItem, noAuthButton }: Pr
               onClose={() => { setIsMenuOpen(false); }}
               activeItem={activeItem}
             />
+
+            {!noAuthButton && (
+              <SignInSignOutButton className={styles.authInGrid} />
+            )}
           </div>
         </button>
 
