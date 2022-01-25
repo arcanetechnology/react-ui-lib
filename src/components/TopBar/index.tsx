@@ -27,12 +27,16 @@ export interface Props {
    * If true, hides the SignInSignOutButton
    */
   noAuthButton?: boolean;
+  /**
+   * Indicates if the authentication should be performed with a redirect instead of using a pop-up. Not recommended.
+   */
+  authWithRedirect?: boolean;
 }
 
 /**
  * Application top bar with Arcane logo and grid menu.
  */
-export default function TopBar({ homeUrl, origin, activeItem, noAuthButton }: Props) {
+export default function TopBar({ homeUrl, origin, activeItem, noAuthButton, authWithRedirect }: Props) {
   const LinkComponent = useLinkComponent();
 
   const [isSticky, setIsSticky] = useState(false);
@@ -77,13 +81,13 @@ export default function TopBar({ homeUrl, origin, activeItem, noAuthButton }: Pr
             />
 
             {!noAuthButton && (
-              <SignInSignOutButton className={styles.authInGrid} />
+              <SignInSignOutButton authWithRedirect={authWithRedirect} className={styles.authInGrid} />
             )}
           </div>
         </button>
 
         {!noAuthButton && (
-          <SignInSignOutButton className={styles.authButton} />
+          <SignInSignOutButton authWithRedirect={authWithRedirect} className={styles.authButton} />
         )}
       </div>
     </>
