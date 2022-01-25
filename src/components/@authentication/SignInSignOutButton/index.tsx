@@ -25,6 +25,16 @@ export default function SignInSignOutButton({ className, ...props }: Props) {
   const LinkComponent = useLinkComponent();
   const user = useUser();
 
+  const handleSignIn = (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault();
+
+    const width = 340;
+    const height = 340;
+    var left = (window.screen.width / 2) - (width / 2);
+    var top = (window.screen.height / 2) - (height / 2);
+    window.open(getAuthLink(), 'authentication', `width=${width},height=${height},left=${left},top=${top},menubar=no,toolbar=no,location=no,status=no`)
+  }
+
   const handleSignOut = () => {
     signOut(getAuth());
   };
@@ -44,11 +54,15 @@ export default function SignInSignOutButton({ className, ...props }: Props) {
         Sign Out
       </Button>
     ) : (
-      <LinkComponent href={`${window.location.origin}/auth?redirect=${window.location.href}`} className={styles.link}>
-        <Button className={className} small secondary data-testid="sign-in-button" {...props}>
+      <LinkComponent href={getAuthLink()} className={styles.link}>
+        <Button className={className} small secondary data-testid="sign-in-button" onClick={handleSignIn} {...props}>
           Sign In
         </Button>
       </LinkComponent>
     )
   );
 }
+
+const getAuthLink = () => (
+  `${window.location.origin}/auth?redirect=${window.location.href}`
+);
