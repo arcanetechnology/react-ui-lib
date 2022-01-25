@@ -45,3 +45,9 @@ button {
 a {
   text-decoration: none;
 }
+
+/* fixes initial loading */
+/* scss modules are not loaded initially */
+[data-grid-menu=true] {
+  display: none;
+}

@@ -72,7 +72,7 @@ export default function TopBar({ homeUrl, origin, activeItem, noAuthButton, auth
         >
           <GridMenu />
 
-          <div className={cn(styles.menu)}>
+          <div className={styles.menu} data-grid-menu={true}>
             <Menu
               origin={origin}
               isOpen={isMenuOpen}
