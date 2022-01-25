@@ -1,3 +1,5 @@
+import './global.scss';
+
 import ArcaneLogo from './components/ArcaneLogo';
 import Button from './components/Button';
 import Clickable from './components/Clickable';

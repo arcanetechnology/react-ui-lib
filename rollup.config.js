@@ -7,6 +7,7 @@ import copy from 'rollup-plugin-copy';
 
 const packageJson = require('./package.json');
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default [{
   input: [
     './src/index.ts'
@@ -31,28 +32,16 @@ export default [{
     commonjs(),
     typescript({ useTsconfigDeclarationDir: true }),
     postcss({
-      extract: false,
+      extract: true,
       modules: true,
       use: ['sass'],
-    })
-  ],
-
-  external: ['react', 'react-dom'],
-}, {
-  input: './src/global.scss',
-  output: {
-    file: 'lib/global.css',
-    format: 'es'
-  },
-  plugins: [
-    postcss({
-      modules: true,
-      extract: true
     }),
     copy({
       targets: [
         { src: 'src/vars.scss', dest: 'lib' }
       ]
     })
-  ]
+  ],
+
+  external: ['react', 'react-dom'],
 }];
