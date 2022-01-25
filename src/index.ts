@@ -8,6 +8,7 @@ import PageBackground from './components/PageBackground';
 import TopBar from './components/TopBar';
 import ContentfulRichText from './components/ContentfulRichText';
 import ContentfulImage from './components/ContentfulImage';
+import Footer from './components/Footer';
 
 import ArcaneUIProvider from './ArcaneUIProvider';
 
@@ -24,6 +25,7 @@ export {
   TopBar,
   ContentfulRichText,
   ContentfulImage,
+  Footer,
 
   ArcaneUIProvider,
 
