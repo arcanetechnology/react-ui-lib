@@ -31,14 +31,6 @@
     }
   }
 
-  &.withAppLogo {
-    .logo {
-      @media (max-width: $mobile-width) {
-        margin-top: 26px;
-      }
-    }
-  }
-
   .appLogo {
     display: flex;
     align-items: center;

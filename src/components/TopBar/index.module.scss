@@ -57,6 +57,12 @@ $top-bar-sticky-height: 88px;
     }
   }
 
+  .logo.withAppLogo {
+    @media (max-width: $mobile-width) {
+      margin-top: 26px;
+    }
+  }
+
   .menuWrapper {
     position: absolute;
     top: 50%;

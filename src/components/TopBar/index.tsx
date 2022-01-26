@@ -69,7 +69,7 @@ export default function TopBar({ homeUrl, origin, activeItem, appLogo, noAuthBut
       )}
 
       <div className={cn(styles.topBar, { [styles.sticky]: isSticky })} data-testid="topBar">
-        <ArcaneLogo homeUrl={homeUrl} appLogo={appLogo} logoClassName={styles.logo} />
+        <ArcaneLogo homeUrl={homeUrl} appLogo={appLogo} logoClassName={cn(styles.logo, { [styles.withAppLogo]: !!appLogo })} />
 
         <button
           className={cn(styles.menuWrapper, { [styles.open]: isMenuOpen, [styles.noAuthButton]: noAuthButton })}

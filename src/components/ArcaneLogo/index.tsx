@@ -26,7 +26,7 @@ export default function ArcaneLogo({ homeUrl, onDark, appLogo, logoClassName }: 
   const LinkComponent = useLinkComponent();
 
   return (
-    <LinkComponent href={homeUrl} className={cn(styles.logoLink, { [styles.withAppLogo]: !!appLogo })}>
+    <LinkComponent href={homeUrl} className={styles.logoLink}>
       <div className={cn(styles.logo, { [logoClassName as string]: !!logoClassName, [styles.onDark]: onDark })}>
         <ArcaneLogoSVG />
       </div>
