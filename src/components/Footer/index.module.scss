@@ -24,17 +24,13 @@
       box-sizing: border-box;
       padding-left: 112px;
 
-      > img {
-        height: 30px;
+      > a {
+        display: inline-block;
       }
 
       @media (max-width: $tablet-width) {
         padding-left: 48px;
         width: 31vw;
-
-        > img {
-          height: 24px;
-        }
       }
 
       @media (max-width: $mobile-width) {

@@ -56,17 +56,8 @@ $top-bar-sticky-height: 88px;
     }
   }
 
-  .menuLinks {
-    display: flex;
-
-    @media (max-width: $tablet-width) {
-      display: none;
-    }
-
-    > div {
-      align-items: center;
-      margin-right: 48px;
-    }
+  .logoLink {
+    display: inline-block;
   }
 
   .menuWrapper {

@@ -6,7 +6,7 @@ import Twitter from '../../svg/Twitter';
 import LinkedIn from '../../svg/LinkedIn';
 import FooterLink from './FooterLink';
 
-export const LINKS = {
+const LINKS = {
   PLATFORM: 'PLATFORM',
   LEARN: 'LEARN',
   RESEARCH: 'RESEARCH',
@@ -26,7 +26,8 @@ export interface Props {
    */
   origin: string;
   /**
-   * The currently active link
+   * The currently active link.
+   * All options available inside the Footer.LINKS object.
    */
   activeLink?: keyof typeof LINKS;
   /**
@@ -125,3 +126,5 @@ export default function Footer({ homeUrl, origin, activeLink, hideResearch = fal
     </div>
   );
 }
+
+Footer.LINKS = LINKS;

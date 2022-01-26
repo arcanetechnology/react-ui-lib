@@ -10,6 +10,12 @@ import SignInSignOutButton from '../@authentication/SignInSignOutButton';
 
 const STICKY_THRESHOLD = 136;
 
+const ITEMS = {
+  Research: 'Research',
+  Trade: 'Trade',
+  Invest: 'Invest'
+}
+
 export interface Props {
   /**
    * App home page URL, used to redirect when the user clicks on the logo
@@ -20,9 +26,10 @@ export interface Props {
    */
   origin: string;
   /**
-   * The current active menu item
+   * The current active menu item.
+   * All options available inside the TopBar.ITEMS object.
    */
-  activeItem?: 'Research' | 'Trade' | 'Invest';
+  activeItem?: keyof typeof ITEMS;
   /**
    * If true, hides the SignInSignOutButton
    */
@@ -61,7 +68,7 @@ export default function TopBar({ homeUrl, origin, activeItem, noAuthButton, auth
       )}
 
       <div className={cn(styles.topBar, { [styles.sticky]: isSticky })} data-testid="topBar">
-        <LinkComponent href={homeUrl}>
+        <LinkComponent href={homeUrl} className={styles.logoLink}>
           <ArcaneLogo className={styles.logo} />
         </LinkComponent>
 
@@ -93,3 +100,5 @@ export default function TopBar({ homeUrl, origin, activeItem, noAuthButton, auth
     </>
   );
 }
+
+TopBar.ITEMS = ITEMS;

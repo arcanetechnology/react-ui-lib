@@ -16,7 +16,7 @@ export const Default = Template.bind({});
 Default.args = {
   homeUrl: 'https://arcane.no',
   origin: 'https://arcane.no',
-  activeLink: LINKS.PLATFORM
+  activeLink: Footer.LINKS.PLATFORM
 };
 
 Default.parameters = {
