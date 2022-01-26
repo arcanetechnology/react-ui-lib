@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import Footer, { Props } from './index';
+import Footer, { LINKS, Props } from './index';
 
 export default {
   title: 'Components/Footer',
@@ -16,7 +16,7 @@ export const Default = Template.bind({});
 Default.args = {
   homeUrl: 'https://arcane.no',
   origin: 'https://arcane.no',
-  currentPath: '/'
+  activeLink: LINKS.PLATFORM
 };
 
 Default.parameters = {

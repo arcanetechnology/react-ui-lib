@@ -6,6 +6,16 @@ import Twitter from '../../svg/Twitter';
 import LinkedIn from '../../svg/LinkedIn';
 import FooterLink from './FooterLink';
 
+export const LINKS = {
+  PLATFORM: 'PLATFORM',
+  LEARN: 'LEARN',
+  RESEARCH: 'RESEARCH',
+  TRADE: 'TRADE',
+  INVEST: 'INVEST',
+  PEOPLE: 'PEOPLE',
+  PRIVACY: 'PRIVACY'
+};
+
 export interface Props {
   /**
    * App home page URL, used to redirect when the user clicks on the logo
@@ -16,15 +26,19 @@ export interface Props {
    */
   origin: string;
   /**
-   * The currently active path (e.g. /learn)
+   * The currently active link
    */
-  currentPath: string;
+  activeLink?: keyof typeof LINKS;
+  /**
+   * Temporary solution to hide the research link before the first release of the Research app
+   */
+  hideResearch?: boolean;
 }
 
 /**
  * Global footer component.
  */
-export default function Footer({ homeUrl, origin, currentPath }: Props) {
+export default function Footer({ homeUrl, origin, activeLink, hideResearch = false }: Props) {
   const LinkComponent = useLinkComponent();
 
   return (
@@ -41,25 +55,33 @@ export default function Footer({ homeUrl, origin, currentPath }: Props) {
             <div className={styles.title}>Menu</div>
 
             <div className={styles.links}>
-              <FooterLink white active={currentPath === '/'}>
-                <LinkComponent href={homeUrl}>
-                  Home
+              <FooterLink white active={activeLink === LINKS.PLATFORM}>
+                <LinkComponent href={origin}>
+                  Platform
                 </LinkComponent>
               </FooterLink>
 
-              <FooterLink white active={currentPath === '/learn'}>
-                <LinkComponent href={`${origin}/learn`}>
-                  Learn
-                </LinkComponent>
-              </FooterLink>
+              {!hideResearch ? (
+                <FooterLink white active={activeLink === LINKS.RESEARCH}>
+                  <LinkComponent href={`${origin}/research`}>
+                    Research
+                  </LinkComponent>
+                </FooterLink>
+              ) : (
+                <FooterLink white active={activeLink === LINKS.LEARN}>
+                  <LinkComponent href={`${origin}/learn`}>
+                    Learn
+                  </LinkComponent>
+                </FooterLink>
+              )}
 
-              <FooterLink white active={currentPath === '/trade'}>
+              <FooterLink white active={activeLink === LINKS.TRADE}>
                 <LinkComponent href={`${origin}/trade`}>
                   Trade
                 </LinkComponent>
               </FooterLink>
 
-              <FooterLink white active={currentPath === '/invest'}>
+              <FooterLink white active={activeLink === LINKS.INVEST}>
                 <LinkComponent href={`${origin}/invest`}>
                   Invest
                 </LinkComponent>
@@ -71,7 +93,7 @@ export default function Footer({ homeUrl, origin, currentPath }: Props) {
             <div className={styles.title}>Company</div>
 
             <div className={styles.links}>
-              <FooterLink white>
+              <FooterLink white active={activeLink === LINKS.PEOPLE}>
                 <LinkComponent href={`${origin}/people`}>People</LinkComponent>
               </FooterLink>
 
@@ -79,7 +101,7 @@ export default function Footer({ homeUrl, origin, currentPath }: Props) {
                 <LinkComponent href="https://investor.arcanecrypto.se/news/" target="_blank">Investor Relations</LinkComponent>
               </FooterLink>
 
-              <FooterLink white>
+              <FooterLink white active={activeLink === LINKS.PRIVACY}>
                 <LinkComponent href={`${origin}/privacy`}>Privacy</LinkComponent>
               </FooterLink>
             </div>
