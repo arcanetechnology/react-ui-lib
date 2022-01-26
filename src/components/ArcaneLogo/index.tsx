@@ -1,26 +1,40 @@
-import styles from './index.module.scss';
-import ArcaneLogoSVG from '../../svg/ArcaneLogo';
 import cn from 'classnames';
+import useLinkComponent from '../../hooks/useLinkComponent';
+import ArcaneLogoSVG from '../../svg/ArcaneLogo';
+import styles from './index.module.scss';
 
 export interface Props {
   /**
-   * CSS class for additional styling
+   * App home page URL, used to redirect when the user clicks on the logo.
    */
-  className?: string;
+  homeUrl: string;
   /**
-   * Indicates if the logo would be displayed on a dark background
+   * Indicates if the logo would be displayed on a dark background.
    */
   onDark?: boolean;
+  /**
+   * App-specific logo displayed next to the Arcane one.
+   */
+  appLogo?: React.ReactNode;
+  /**
+   * Styles applied to the main Arcane logo.
+   */
+  logoClassName?: string;
 }
 
-/**
- * The official Arcane Logo. It defaults to 30px height on desktop / 24px on mobile.
- * To modify, add a custom className to this component.
- */
-export default function ArcaneLogo({ className, onDark = false }: Props) {
+export default function ArcaneLogo({ homeUrl, onDark, appLogo, logoClassName }: Props) {
+  const LinkComponent = useLinkComponent();
+
   return (
-    <div className={cn(styles.logo, { [className as string]: !!className, [styles.onDark]: onDark })}>
-      <ArcaneLogoSVG />
-    </div>
+    <LinkComponent href={homeUrl} className={cn(styles.logoLink, { [styles.withAppLogo]: !!appLogo })}>
+      <div className={cn(styles.logo, { [logoClassName as string]: !!logoClassName, [styles.onDark]: onDark })}>
+        <ArcaneLogoSVG />
+      </div>
+      {appLogo && (
+        <div className={styles.appLogo}>
+          {appLogo}
+        </div>
+      )}
+    </LinkComponent>
   );
 }

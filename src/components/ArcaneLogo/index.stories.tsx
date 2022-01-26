@@ -2,6 +2,7 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import ArcaneLogo, { Props } from './index';
 import './index.stories.css';
+import ResearchText from './ResearchText';
 
 export default {
   title: 'Components/ArcaneLogo',
@@ -12,6 +13,7 @@ const Template: Story<Props> = (args) => <ArcaneLogo {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
+  homeUrl: '/',
   onDark: false
 };
 
@@ -23,11 +25,33 @@ const DarkTemplate: Story<Props> = (args) => (
 
 export const OnDarkBackground = DarkTemplate.bind({});
 OnDarkBackground.args = {
+  homeUrl: '/',
   onDark: true
 };
 
-export const CustomStyles = Template.bind({});
+const CustomStylesTemplate: Story<Props> = (args) => (
+  <div id="app">
+    <ArcaneLogo {...args} />
+  </div>
+);
+
+export const CustomStyles = CustomStylesTemplate.bind({});
 CustomStyles.args = {
+  homeUrl: '/',
   onDark: false,
-  className: 'custom-logo-styles'
+  logoClassName: 'custom-logo-styles'
+};
+
+export const WithAppLogo = Template.bind({});
+WithAppLogo.args = {
+  homeUrl: '/',
+  onDark: false,
+  appLogo: <ResearchText />
+};
+
+export const WithAppLogoOnDarkBackground = DarkTemplate.bind({});
+WithAppLogoOnDarkBackground.args = {
+  homeUrl: '/',
+  onDark: true,
+  appLogo: <ResearchText fill="#FFF" />
 };

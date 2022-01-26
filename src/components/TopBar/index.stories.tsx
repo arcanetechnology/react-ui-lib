@@ -1,6 +1,7 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import TopBar, { Props } from './index';
+import ResearchText from '../ArcaneLogo/ResearchText';
 
 export default {
   title: 'Components/TopBar',
@@ -44,5 +45,17 @@ StickyTopBar.args = {
   origin: 'https://arcane.no'
 };
 StickyTopBar.parameters = {
+  layout: 'fullscreen',
+}
+
+export const WithAppLogo = Template.bind({});
+
+WithAppLogo.args = {
+  homeUrl: '/',
+  origin: 'https://arcane.no',
+  appLogo: <ResearchText />
+
+};
+WithAppLogo.parameters = {
   layout: 'fullscreen',
 }

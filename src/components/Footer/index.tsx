@@ -31,6 +31,10 @@ export interface Props {
    */
   activeLink?: keyof typeof LINKS;
   /**
+   * App-specific logo displayed next to the Arcane one.
+   */
+  appLogo?: React.ReactNode;
+  /**
    * Temporary solution to hide the research link before the first release of the Research app
    */
   hideResearch?: boolean;
@@ -39,16 +43,14 @@ export interface Props {
 /**
  * Global footer component.
  */
-export default function Footer({ homeUrl, origin, activeLink, hideResearch = false }: Props) {
+export default function Footer({ homeUrl, origin, activeLink, appLogo, hideResearch = false }: Props) {
   const LinkComponent = useLinkComponent();
 
   return (
     <div className={styles.footer}>
       <div className={styles.main}>
         <div className={styles.logoWrapper}>
-          <LinkComponent href={homeUrl}>
-            <ArcaneLogo onDark />
-          </LinkComponent>
+          <ArcaneLogo homeUrl={homeUrl} appLogo={appLogo} onDark />
         </div>
 
         <ul className={styles.menuList}>

@@ -1,10 +1,9 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import styles from './index.module.scss';
 import ArcaneLogo from '../../components/ArcaneLogo';
 import useScroll from '../../hooks/useScroll';
 import cn from 'classnames';
 import GridMenu from '../../svg/GridMenu';
-import useLinkComponent from '../../hooks/useLinkComponent';
 import Menu from './Menu';
 import SignInSignOutButton from '../@authentication/SignInSignOutButton';
 
@@ -18,7 +17,7 @@ const ITEMS = {
 
 export interface Props {
   /**
-   * App home page URL, used to redirect when the user clicks on the logo
+   * App home page URL, used to redirect when the user clicks on the logo.
    */
   homeUrl: string;
   /**
@@ -31,7 +30,11 @@ export interface Props {
    */
   activeItem?: keyof typeof ITEMS;
   /**
-   * If true, hides the SignInSignOutButton
+   * App-specific logo displayed next to the Arcane one.
+   */
+  appLogo?: React.ReactNode;
+  /**
+   * If true, hides the SignInSignOutButton.
    */
   noAuthButton?: boolean;
   /**
@@ -43,9 +46,7 @@ export interface Props {
 /**
  * Application top bar with Arcane logo and grid menu.
  */
-export default function TopBar({ homeUrl, origin, activeItem, noAuthButton, authWithRedirect }: Props) {
-  const LinkComponent = useLinkComponent();
-
+export default function TopBar({ homeUrl, origin, activeItem, appLogo, noAuthButton, authWithRedirect }: Props) {
   const [isSticky, setIsSticky] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -68,9 +69,7 @@ export default function TopBar({ homeUrl, origin, activeItem, noAuthButton, auth
       )}
 
       <div className={cn(styles.topBar, { [styles.sticky]: isSticky })} data-testid="topBar">
-        <LinkComponent href={homeUrl} className={styles.logoLink}>
-          <ArcaneLogo className={styles.logo} />
-        </LinkComponent>
+        <ArcaneLogo homeUrl={homeUrl} appLogo={appLogo} logoClassName={styles.logo} />
 
         <button
           className={cn(styles.menuWrapper, { [styles.open]: isMenuOpen, [styles.noAuthButton]: noAuthButton })}

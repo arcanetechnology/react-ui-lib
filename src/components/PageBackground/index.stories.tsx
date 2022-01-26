@@ -18,7 +18,7 @@ LongPage.args = {
       <p>Scroll down to see the various background images on the left and right of the page.</p>
       <p>You can also resize the browser to tablet and mobile version to see how the background images change.</p>
       {Array(251).fill(null).map((_, i) => (
-        <p>{i}</p>
+        <p key={i}>{i}</p>
       ))}
     </div>
   )

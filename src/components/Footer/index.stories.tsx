@@ -1,6 +1,7 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import Footer, { LINKS, Props } from './index';
+import Footer, { Props } from './index';
+import ResearchText from '../ArcaneLogo/ResearchText';
 
 export default {
   title: 'Components/Footer',
@@ -14,11 +15,24 @@ const Template: Story<Props> = (args) => (
 export const Default = Template.bind({});
 
 Default.args = {
-  homeUrl: 'https://arcane.no',
+  homeUrl: '/',
   origin: 'https://arcane.no',
   activeLink: Footer.LINKS.PLATFORM
 };
 
 Default.parameters = {
+  layout: 'fullscreen',
+}
+
+export const WithAppLogo = Template.bind({});
+
+WithAppLogo.args = {
+  homeUrl: '/',
+  origin: 'https://arcane.no',
+  activeLink: Footer.LINKS.PLATFORM,
+  appLogo: <ResearchText fill="#FFF" />
+};
+
+WithAppLogo.parameters = {
   layout: 'fullscreen',
 }

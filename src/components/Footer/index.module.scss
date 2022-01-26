@@ -24,13 +24,8 @@
       box-sizing: border-box;
       padding-left: 112px;
 
-      > a {
-        display: inline-block;
-      }
-
       @media (max-width: $tablet-width) {
         padding-left: 48px;
-        width: 31vw;
       }
 
       @media (max-width: $mobile-width) {
@@ -38,10 +33,6 @@
         justify-content: center;
         width: 100%;
         padding: 0;
-
-        > img {
-          height: 30px;
-        }
       }
     }
 
