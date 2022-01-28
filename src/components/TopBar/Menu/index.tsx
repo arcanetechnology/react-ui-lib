@@ -3,10 +3,16 @@ import useOutsideClick from '../../../hooks/useOutsideClick';
 import Analytics from '../../../svg/Analytics';
 import Exchange from '../../../svg/Exchange';
 import Search from '../../../svg/Search';
+import A from '../../../svg/A';
 import styles from './index.module.scss';
 import cn from 'classnames';
 
 const MENU_ITEMS = [
+  {
+    url: '',
+    icon: <A />,
+    label: 'Platform'
+  },
   {
     url: 'research',
     icon: <Search />,

@@ -10,6 +10,7 @@ import SignInSignOutButton from '../@authentication/SignInSignOutButton';
 const STICKY_THRESHOLD = 136;
 
 const ITEMS = {
+  Platform: 'Platform',
   Research: 'Research',
   Trade: 'Trade',
   Invest: 'Invest'
