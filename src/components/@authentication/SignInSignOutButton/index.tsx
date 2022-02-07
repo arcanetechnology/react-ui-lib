@@ -3,6 +3,7 @@ import Button from '../../Button';
 import useUser from '../useUser';
 import useLinkComponent from '../../../hooks/useLinkComponent';
 import styles from './index.module.scss';
+import AuthProvider from '../AuthProvider';
 
 export interface Props {
   /**
@@ -32,8 +33,8 @@ export default function SignInSignOutButton({ className, authWithRedirect = fals
   const handleSignIn = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
 
-    const width = 340;
-    const height = 340;
+    const width = 512;
+    const height = 563;
     var left = (window.screen.width / 2) - (width / 2);
     var top = (window.screen.height / 2) - (height / 2);
     window.open(getAuthLink(), 'authentication', `width=${width},height=${height},left=${left},top=${top},menubar=no,toolbar=no,location=no,status=no`)
@@ -47,13 +48,12 @@ export default function SignInSignOutButton({ className, authWithRedirect = fals
     return null;
   }
 
-  // @ts-ignore
-  if (user && user.loading) {
+  if (user.state === AuthProvider.USER_STATE_LOADING) {
     return null;
   }
 
   return (
-    user ? (
+    user.state === AuthProvider.USER_STATE_SIGNED_IN ? (
       <Button className={className} small secondary onClick={handleSignOut} data-testid="sign-out-button" {...props}>
         Sign Out
       </Button>
