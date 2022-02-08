@@ -68,5 +68,5 @@ export default function SignInSignOutButton({ className, authWithRedirect = fals
 }
 
 const getAuthLink = () => (
-  `${window.location.origin}/auth?redirect=${window.location.href}`
+  `${window.location.origin}/auth?redirect=${window.location.href}&t=${Date.now()}`
 );
