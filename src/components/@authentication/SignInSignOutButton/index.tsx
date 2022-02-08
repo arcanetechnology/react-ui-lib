@@ -37,7 +37,7 @@ export default function SignInSignOutButton({ className, authWithRedirect = fals
     const height = 563;
     var left = (window.screen.width / 2) - (width / 2);
     var top = (window.screen.height / 2) - (height / 2);
-    window.open(getAuthLink(), 'authentication', `width=${width},height=${height},left=${left},top=${top},menubar=no,toolbar=no,location=no,status=no`)
+    window.open(getAuthLink(), `authentication-${Date.now()}`, `width=${width},height=${height},left=${left},top=${top},menubar=no,toolbar=no,location=no,status=no`)
   }
 
   const handleSignOut = () => {
