@@ -33,26 +33,23 @@ $top-bar-sticky-height: 88px;
   &.sticky {
     position: fixed;
     z-index: 99;
-    top: -$top-bar-height;
-    height: $top-bar-sticky-height;
+    top: 0;
     left: 0;
     right: 0;
     background-color: white;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    animation: slidein 0.3s forwards;
+    transition: height 0.2s;
 
     .logo {
-      width: 141px;
-      height: 24px;
+      transition: all 0.2s;
     }
 
-    @keyframes slidein {
-      from {
-        top: -$top-bar-height;
-      }
+    &.isSmall {
+      height: $top-bar-sticky-height;
 
-      to {
-        top: 0;
+      .logo {
+        width: 141px;
+        height: 24px;
       }
     }
   }

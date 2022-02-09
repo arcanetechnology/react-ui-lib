@@ -49,14 +49,12 @@ export interface Props {
  */
 export default function TopBar({ homeUrl, origin, activeItem, appLogo, noAuthButton, authWithRedirect }: Props) {
   const [isSticky, setIsSticky] = useState(false);
+  const [isSmall, setIsSmall] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useScroll((offset) => {
-    setIsSticky((state) => (
-      state === false
-        ? offset > STICKY_THRESHOLD
-        : offset > 0
-    ));
+    setIsSticky(offset > 0);
+    setIsSmall(offset > STICKY_THRESHOLD);
   });
 
   const toggleMenu = () => {
@@ -69,7 +67,7 @@ export default function TopBar({ homeUrl, origin, activeItem, appLogo, noAuthBut
         <div className={styles.fakeTopBar} />
       )}
 
-      <div className={cn(styles.topBar, { [styles.sticky]: isSticky })} data-testid="topBar">
+      <div className={cn(styles.topBar, { [styles.sticky]: isSticky, [styles.isSmall]: isSmall })} data-testid="topBar">
         <ArcaneLogo homeUrl={homeUrl} appLogo={appLogo} logoClassName={cn(styles.logo, { [styles.withAppLogo]: !!appLogo })} />
 
         <button
