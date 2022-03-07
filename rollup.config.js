@@ -38,7 +38,8 @@ export default [{
     }),
     copy({
       targets: [
-        { src: 'src/vars.scss', dest: 'lib' }
+        { src: 'src/vars.scss', dest: 'lib' },
+        { src: 'src/toggle.css', dest: 'lib' }
       ]
     })
   ],

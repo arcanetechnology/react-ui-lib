@@ -4,7 +4,7 @@
   "module": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "main": "./lib/index.cjs.js",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "private": false,
   "files": [
     "lib",
@@ -21,7 +21,9 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
-    "gh-pages": "^3.2.3"
+    "@types/react-toggle": "^4.0.3",
+    "gh-pages": "^3.2.3",
+    "react-toggle": "^4.1.2"
   },
   "scripts": {
     "test": "react-scripts test",
@@ -70,7 +72,8 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
-    "sass": "^1.44.0"
+    "sass": "^1.44.0",
+    "next": "^12.0.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.16.0",

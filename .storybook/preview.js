@@ -1,8 +1,10 @@
 import { addDecorator } from '@storybook/react';
+import ReactDOM from 'react-dom';
 import { withTests } from '@storybook/addon-jest';
 
 import ArcaneUIProvider from '../src/ArcaneUIProvider';
-import '../src/global.scss';
+import '../src/global.css';
+import '../src/toggle.css';
 
 import results from './.jest-test-results.json';
 
@@ -35,7 +37,14 @@ export const parameters = {
 
 export const decorators = [
   (Story) => (
-    <ArcaneUIProvider LinkComponent={({...props}) => (<a {...props} />)}>
+    <ArcaneUIProvider
+      LinkComponent={({...props}) => (
+        <a {...props} />
+      )}
+      PortalComponent={({ children }) => (
+        ReactDOM.createPortal(children, document.querySelector('#root'))
+      )}
+    >
       <Story />
     </ArcaneUIProvider>
   ),

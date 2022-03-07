@@ -19,7 +19,8 @@ This component library aims to unify the UI and front-end functionality across t
 ### Prerequisites
 
 - `import '@arcanetechnology/react-ui-lib/lib/index.css';` at application entry point - to include global styles, including the `Poppins` font, and components styles. Adding components styles as early as the app entry point prevents flickering on loading.
-- Wrap your React application inside the `ArcaneUIProvider` component, providing the `Link` component the application uses. The `Link` component should accept a `href` prop.
+- `import '@arcanetechnology/react-ui-lib/lib/toggle.css';` at application entry point to use the `<Toggle>` component.
+- Wrap your React application inside the `ArcaneUIProvider` component, providing the `LinkComponent` the application uses. The `LinkComponent` component should accept a `href` prop.
   - For **create-react-app** applications, you may provide the react-router `Link` component. Note that the react-router `Link` accept a `to` instead of `href` prop, so we need to handle that in our application.
     ```javascript
     import { ArcaneUIProvider } from '@arcanetechnology/react-ui-lib';
@@ -71,6 +72,38 @@ This component library aims to unify the UI and front-end functionality across t
     <ArcaneUIProvider LinkComponent={({...props}) => (<a {...props} />)}>
       // ...
     </ArcaneUIProvider>
+    ```
+
+- In addition to the `LinkComponent`, also provide the `PortalComponent` to the `ArcaneUIProvider`. This is the Portal component the application uses.
+  - For **next.js** applications, the implementation can look like this:
+    ```javascript
+    import { useClientSide } from 'hooks';
+    import ReactDOM from 'react-dom';
+
+    const AppPortal = ({ children }) => {
+      const isClientSide = useClientSide();
+
+      return isClientSide
+        ? ReactDOM.createPortal(children, document.querySelector('#__next'))
+        : null;
+    };
+
+    export default AppPortal;
+    ```
+    ```javascript
+    import { useEffect, useState } from 'react';
+
+    const useClientSide = () => {
+      const [mounted, setMounted] = useState(false);
+
+      useEffect(() => {
+        setMounted(true);
+      }, []);
+
+      return mounted;
+    };
+
+    export default useClientSide;
     ```
 
 ### Components

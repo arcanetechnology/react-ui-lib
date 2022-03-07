@@ -1,0 +1,62 @@
+@import '../../vars.scss';
+
+.header {
+  display: flex;
+  align-items: center;
+
+  .title {
+    margin-left: 16px;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 40px;
+    color: #090A0B;
+
+    @media (max-width: $mobile-width) {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+}
+
+.text {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 16px;
+  color: #868E96;
+
+  a {
+    color: #090A0B;
+    text-decoration: underline;
+  }
+}
+
+.settings {
+  margin-top: 16px;
+  padding-top: 24px;
+  border-top: 1px solid #DEE2E6;
+
+  .setting {
+    margin-bottom: 32px;
+
+    .settingTitle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .settingTitleText {
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 32px;
+        color: #090A0B;
+      }
+    }
+
+    .text {
+      max-width: 334px;
+    }
+  }
+}
+
+.saveButton {
+  width: 100%;
+}
