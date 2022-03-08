@@ -285,6 +285,18 @@
                 }
             ],
             "nodeType": "paragraph"
+        },
+        {
+            "data": {},
+            "content": [
+                {
+                    "data": {},
+                    "marks": [],
+                    "value": "This is a paragraph with new lines\nDate and time of visit\nBrowser information\nIP address\nDevice information\nLocation information\nPages visited",
+                    "nodeType": "text"
+                }
+            ],
+            "nodeType": "paragraph"
         }
       ],
       "nodeType": "document"

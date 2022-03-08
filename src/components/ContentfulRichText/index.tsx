@@ -4,15 +4,13 @@ import cn from 'classnames';
 import styles from './index.module.scss';
 
 const renderOptions = (links: any) => {
-  if (!links) {
-    return {};
-  }
-
   const assetMap = new Map();
 
-  // eslint-disable-next-line no-restricted-syntax
-  for (const asset of links.assets.block) {
-    assetMap.set(asset.sys.id, asset);
+  if (links) {
+    // eslint-disable-next-line no-restricted-syntax
+    for (const asset of links.assets.block) {
+      assetMap.set(asset.sys.id, asset);
+    }
   }
 
   return {
@@ -29,7 +27,9 @@ const renderOptions = (links: any) => {
       },
     },
     renderText: (text: any) => (
-      text.split('\n').flatMap((text: any, i: number) => [i > 0 && <br />, text])
+      text.split('\n').flatMap((text: any, i: number) => (
+        [i > 0 && <br />, text]
+      ))
     )
   };
 };
