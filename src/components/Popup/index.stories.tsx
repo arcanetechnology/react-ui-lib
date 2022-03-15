@@ -41,3 +41,11 @@ FullScreenScrollable.args = {
   isOpen: true,
   fullscreen: true
 };
+
+export const WithCloseIcon = Template.bind({});
+
+WithCloseIcon.args = {
+  isOpen: true,
+  fullscreen: true,
+  showCloseIcon: true
+};
