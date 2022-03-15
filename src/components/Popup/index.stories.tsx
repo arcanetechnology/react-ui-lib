@@ -19,3 +19,25 @@ export const Default = Template.bind({});
 Default.args = {
   isOpen: true,
 };
+
+export const FullScreen = Template.bind({});
+
+FullScreen.args = {
+  isOpen: true,
+  fullscreen: true
+};
+
+const TemplateLongContent: Story<Props> = (args) => (
+  <Popup {...args}>
+    {Array(100).fill(null).map((_, index) => (
+      <p key={index}>line {index}</p>
+    ))}
+  </Popup>
+);
+
+export const FullScreenScrollable = TemplateLongContent.bind({});
+
+FullScreenScrollable.args = {
+  isOpen: true,
+  fullscreen: true
+};
