@@ -18,6 +18,21 @@ const renderOptions = (links: any) => {
       [BLOCKS.EMBEDDED_ASSET]: (node: any) => {
         const asset = assetMap.get(node.data.target.sys.id);
 
+        if (asset.contentType.indexOf('video') !== -1) {
+          return (
+            <div data-richimage className={styles.image}>
+              <video
+                controls
+                width="100%"
+                title={asset.title}
+              >
+                <source src={asset.url} type={asset.contentType} />
+              </video>
+              <div className={styles.description}>{asset.description}</div>
+            </div>
+          )
+        }
+
         return (
           <div data-richimage className={styles.image}>
             <img src={asset.url} alt="" />
