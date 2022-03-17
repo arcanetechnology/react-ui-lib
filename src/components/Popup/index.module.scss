@@ -34,6 +34,12 @@
       position: absolute;
       top: 12px;
       right: 12px;
+
+      &:hover {
+        svg path {
+          fill: #090A0B;
+        }
+      }
     }
   }
 
