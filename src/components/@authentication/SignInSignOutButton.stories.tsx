@@ -11,7 +11,7 @@ export default {
 const Template: Story<Props> = (args) => (
   <AuthProvider>
     <p>&lt;SignInSignOutButton&gt;: In order to work, the Platform App should be deployed on the same domain as the application hosting this button</p>
-    <SignInSignOutButton />
+    <SignInSignOutButton {...args} />
   </AuthProvider>
 );
 

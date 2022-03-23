@@ -11,6 +11,10 @@ export interface Props {
    */
   className?: string;
   /**
+   * A custom label for the SignIn button.
+   */
+  signInLabel?: string;
+  /**
    * Indicates if the authentication should be performed with a redirect instead of using a pop-up. Not recommended.
    */
   authWithRedirect?: boolean;
@@ -26,7 +30,7 @@ export interface Props {
  *
  * It redirects to <current_domain>/auth, where the Platform App should be hosted for authentication to work correctly.
  */
-export default function SignInSignOutButton({ className, authWithRedirect = false, ...props }: Props) {
+export default function SignInSignOutButton({ className, signInLabel, authWithRedirect = false, ...props }: Props) {
   const LinkComponent = useLinkComponent();
   const user = useUser();
 
@@ -60,7 +64,7 @@ export default function SignInSignOutButton({ className, authWithRedirect = fals
     ) : (
       <LinkComponent href={getAuthLink()} className={styles.link}>
         <Button className={className} small secondary data-testid="sign-in-button" onClick={authWithRedirect ? null : handleSignIn} {...props}>
-          Sign In
+          {signInLabel || 'Sign In'}
         </Button>
       </LinkComponent>
     )
