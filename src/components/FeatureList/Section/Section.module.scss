@@ -1,0 +1,37 @@
+@import '../../../vars.scss';
+
+.section {
+  display: flex;
+  align-items: center;
+  margin-top: 200px;
+
+  @media (max-width: $tablet-width) {
+    margin-top: 128px;
+  }
+
+  @media (max-width: $mobile-width) {
+    margin-top: 88px;
+    justify-content: center;
+  }
+
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+
+    @media (max-width: $mobile-width) {
+      max-width: 685px;
+      flex-direction: column;
+      align-items: flex-start;
+
+      &.columnReverse {
+        flex-direction: column-reverse;
+      }
+    }
+
+    @media (max-width: 685px) {
+      max-width: 100%;
+    }
+  }
+}

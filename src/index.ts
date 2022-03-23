@@ -13,6 +13,7 @@ import Footer from './components/Footer';
 import Overlay from './components/Overlay';
 import Popup from './components/Popup';
 import CookiePopupWithStorage from './components/CookiePopupWithStorage';
+import FeatureList from './components/FeatureList';
 
 import ArcaneUIProvider from './ArcaneUIProvider';
 
@@ -35,6 +36,7 @@ export {
   Overlay,
   Popup,
   CookiePopupWithStorage,
+  FeatureList,
 
   ArcaneUIProvider,
 

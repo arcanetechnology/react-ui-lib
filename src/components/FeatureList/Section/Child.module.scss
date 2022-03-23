@@ -1,0 +1,39 @@
+@import '../../../vars.scss';
+
+.child {
+  flex: 1;
+
+  &:last-child {
+    margin-left: 145px;
+
+    &.marketingImage {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start; // fixes image stretching on Safari
+    }
+  }
+
+  img {
+    width: 100%;
+    max-width: 600px;
+  }
+
+  @media (max-width: $tablet-width) {
+    &:last-child {
+      margin-left: 90px;
+    }
+  }
+
+  @media (max-width: $mobile-width) {
+    margin-top: 32px;
+
+    &:last-child {
+      margin-left: 0px;
+    }
+
+    img {
+      width: 100%;
+      max-width: $mobile-width;
+    }
+  }
+}
