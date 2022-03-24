@@ -25,7 +25,9 @@
   }
 
   @media (max-width: $mobile-width) {
-    margin-top: 32px;
+    &.marketingImage {
+      margin-top: 32px;
+    }
 
     &:last-child {
       margin-left: 0px;

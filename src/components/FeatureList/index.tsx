@@ -14,6 +14,10 @@ export interface Props {
    * A function rendering the given button
    */
   renderButton?: (button: any) => React.ReactNode;
+  /**
+   * An additional class name for the section.
+   */
+  className?: string;
 };
 
 interface Item {
@@ -37,7 +41,7 @@ interface Item {
  *
  * The button can be of any type or value. If provided, the renderButton function should also be provided to render the button.
  */
-export default function FeatureList({ content, renderButton }: Props) {
+export default function FeatureList({ content, renderButton, className }: Props) {
   const renderImage = (item: Item) => (
     <Child marketingImage>
       <ContentfulImage image={item.image} w={600} showDescription={false} />
@@ -71,7 +75,8 @@ export default function FeatureList({ content, renderButton }: Props) {
       {content.itemsCollection.map((item, index) => (
         <Section
           columnReverse={index % 2 === 0}
-          key={item.title}
+          key={item.title || index}
+          className={className}
           data-testid="FeatureList"
         >
           {index % 2 === 0
