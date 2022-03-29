@@ -1,0 +1,32 @@
+.dotNavigation {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+
+  .dotWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+
+    .dot {
+      box-sizing: border-box;
+      width: 8px;
+      height: 8px;
+      border: 1px solid #6C757D;
+      border-radius: 8px;
+      background-color: transparent;
+
+      &:first-child {
+        margin-left: 0px;
+      }
+
+      &.active {
+        background: #6C757D;
+        pointer-events: none;
+      }
+    }
+  }
+}
