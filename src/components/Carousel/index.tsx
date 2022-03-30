@@ -102,7 +102,7 @@ const Carousel = ({ children, className, slideClassName, autoRotate, enableKeyNa
    */
   useResize(() => {
     setTimeout(() => {
-      const slideWrapper = carouselRef.current.querySelector('[data-slide-wrapper]');
+      const slideList = carouselRef.current.querySelector('[data-slide-list]');
       const slides = carouselRef.current.querySelectorAll('[data-slide]');
       let maxHeight = 0;
 
@@ -116,7 +116,7 @@ const Carousel = ({ children, className, slideClassName, autoRotate, enableKeyNa
         maxHeight = Math.max(maxHeight, height);
       });
 
-      slideWrapper.style.height = `${maxHeight + slideVerticalPadding * 2}px`;
+      slideList.style.height = `${maxHeight + slideVerticalPadding * 2}px`;
     }, 50);
   });
 
@@ -308,7 +308,7 @@ const Carousel = ({ children, className, slideClassName, autoRotate, enableKeyNa
 
   return (
     <div className={cn(styles.carousel, { [className as string]: !!className })} ref={carouselRef}>
-      <div className={styles.slides} data-slide-wrapper>
+      <div className={styles.slides} data-slide-list>
         {children.map((child, i) => (
           <Swipeable
             key={child.props['data-key']}
