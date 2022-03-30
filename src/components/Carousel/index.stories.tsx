@@ -15,9 +15,9 @@ const MinimalStylingTemplate: Story<Props> = (args) => (
     className="minimal-styling-carousel"
     indicatorComponent={<DotNavigation />}
   >
-    <div data-key="unique-key" className="slide">This is a slide</div>
-    <div data-key="another-key" className="slide">This is another slide</div>
-    <div data-key="last-slide-key" className="slide">The last slide</div>
+    <div data-key="unique-key" className="slide-simple">This is a slide</div>
+    <div data-key="another-key" className="slide-simple">This is another slide</div>
+    <div data-key="last-slide-key" className="slide-simple">The last slide</div>
   </Carousel>
 );
 
@@ -32,7 +32,6 @@ MinimalStyling.parameters = {
 const FeedbackTemplate: Story<Props> = (args) => (
   <Carousel
     className="feedback-carousel"
-    slideClassName="feedback-carousel-slide"
     indicatorComponent={<DotNavigation />}
     slideVerticalPadding={12}
   >
@@ -75,7 +74,6 @@ const FeedbackResponsiveTemplate: Story<Props> = (args) => (
   <>
     <Carousel
       className="feedback-carousel-responsive"
-      slideClassName="feedback-carousel-slide"
       indicatorComponent={<DotNavigation />}
       initialActiveSlide={1}
       slideVerticalPadding={12}

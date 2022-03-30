@@ -14,6 +14,8 @@ import Overlay from './components/Overlay';
 import Popup from './components/Popup';
 import CookiePopupWithStorage from './components/CookiePopupWithStorage';
 import FeatureList from './components/FeatureList';
+import Carousel from './components/Carousel';
+import DotNavigation from './components/Carousel/DotNavigation';
 
 import ArcaneUIProvider from './ArcaneUIProvider';
 
@@ -37,6 +39,8 @@ export {
   Popup,
   CookiePopupWithStorage,
   FeatureList,
+  Carousel,
+  DotNavigation,
 
   ArcaneUIProvider,
 

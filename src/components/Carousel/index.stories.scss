@@ -3,7 +3,7 @@
 .minimal-styling-carousel {
   width: 100vw;
 
-  .slide {
+  .slide-simple {
     box-sizing: border-box;
     padding: 12px;
     background-color: black;
@@ -16,22 +16,25 @@
   margin-top: 10px;
   width: 100%;
 
-  .feedback-carousel-slide {
+  [data-slide] {
     box-sizing: border-box;
     width: calc(100% - 24px);
     padding: 12px 5px;
   }
 }
 
+$switch-width: 1023px;
+
 .feedback-carousel-responsive {
+  display: none;
   margin-top: 10px;
   width: 100%;
 
-  @media (min-width: $mobile-width) {
-    display: none;
+  @media (max-width: $switch-width) {
+    display: block;
   }
 
-  .feedback-carousel-slide {
+  [data-slide] {
     box-sizing: border-box;
     width: calc(100% - 24px);
     padding: 12px 5px;
@@ -43,12 +46,15 @@
   margin-top: 10px;
   width: 100%;
 
-  @media (min-width: $mobile-width) {
+  @media (min-width: $switch-width+1) {
     display: flex;
   }
 }
 
 .slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   margin-left: 64px;
   padding: 24px;
   background: #FFFFFF;
@@ -69,7 +75,7 @@
     justify-content: flex-end;
   }
 
-  @media (max-width: $mobile-width) {
+  @media (max-width: $switch-width) {
     margin-left: 0px;
     padding: 16px;
     font-size: 14px;

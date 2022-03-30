@@ -36,10 +36,6 @@ export interface Props {
    */
   className?: string;
   /**
-   * Additional className for each slide.
-   */
-  slideClassName?: string;
-  /**
    * Indicates if the slides auto rotate themselves.
    */
   autoRotate?: boolean;
@@ -89,7 +85,7 @@ export interface Props {
  *   &lt;div data-key="another-key"&gt;This is another slide&lt;/div&gt; <br />
  * &lt;/Carousel&gt; <br />
  */
-const Carousel = ({ children, className, slideClassName, autoRotate, enableKeyNavigation, initialActiveSlide = 0, indicatorComponent, prevSlideComponent, nextSlideComponent, onSlideChange, slideVerticalPadding = 0 }: Props) => {
+const Carousel = ({ children, className, autoRotate, enableKeyNavigation, initialActiveSlide = 0, indicatorComponent, prevSlideComponent, nextSlideComponent, onSlideChange, slideVerticalPadding = 0 }: Props) => {
   const carouselRef = useRef<any>();
 
   const defaultState = {
@@ -125,7 +121,7 @@ const Carousel = ({ children, className, slideClassName, autoRotate, enableKeyNa
       case ACTIONS.INIT_SLIDE_POSITIONS:
         return {
           ...state,
-          slidePositions: children.map((child, i) => (
+          slidePositions: children.map((_, i) => (
             i < state.activeSlide
               ? `${-100 * (state.activeSlide - i)}%`
               : i > state.activeSlide ? `${100 * (i - state.activeSlide)}%` : 0
@@ -158,7 +154,7 @@ const Carousel = ({ children, className, slideClassName, autoRotate, enableKeyNa
         const width = slides[0].offsetWidth;
 
         if (!state.isSwipingStarted) {
-          const slidePositions = children.map((child, i) => (
+          const slidePositions = children.map((_, i) => (
             i < state.activeSlide
               ? `-${width * (state.activeSlide - i)}px`
               : i > state.activeSlide ? `${width * (i - state.activeSlide)}px` : 0
@@ -202,7 +198,7 @@ const Carousel = ({ children, className, slideClassName, autoRotate, enableKeyNa
           ...state,
           activeSlide,
           isTransitioning: true,
-          slidePositions: children.map((child, i) => (
+          slidePositions: children.map((_, i) => (
             i < state.activeSlide
               ? `${-100 * (state.activeSlide - i)}%`
               : i > state.activeSlide ? `${100 * (i - state.activeSlide)}%` : 0
@@ -312,7 +308,7 @@ const Carousel = ({ children, className, slideClassName, autoRotate, enableKeyNa
         {children.map((child, i) => (
           <Swipeable
             key={child.props['data-key']}
-            className={cn(styles.slide, { [slideClassName as string]: !!slideClassName })}
+            className={styles.slide}
             style={{
               transform: `translateX(${state.slidePositions[i]})`,
               transitionDuration: `${state.isTransitioning ? TRANSITION_DURATION : '0ms'}`
