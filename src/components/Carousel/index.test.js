@@ -49,7 +49,9 @@ const slide = (index) => {
  */
 const expectSlides = ({ activeSlide, length }) => {
   Array(length).fill(null).forEach((item, i) => {
-    const position = i < activeSlide ? '-100%' : i > activeSlide ? '100%' : 0;
+    const position = i < activeSlide
+      ? `${-100 * (activeSlide - i)}%`
+      : i > activeSlide ? `${100 * (i - activeSlide)}%` : 0;
     expect(slide(i).transform).toBe(`translateX(${position})`);
   });
 };

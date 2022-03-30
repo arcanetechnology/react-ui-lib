@@ -1,12 +1,12 @@
-import { useEffect } from 'react';
+import { useLayoutEffect } from 'react';
 
 /**
  * A custom hook to track resize events.
  *
- * @param  {Function} callback: called when the browser window resizes
+ * @param  {Function} callback: called when the browser window resizes, and also on initialization
  */
-const useResize = (callback) => {
-  useEffect(() => {
+const useResize = (callback: () => void) => {
+  useLayoutEffect(() => {
     window.addEventListener('resize', callback);
     callback();
 

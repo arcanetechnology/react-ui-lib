@@ -1,17 +1,17 @@
 import React, { useReducer, useLayoutEffect, useRef } from 'react';
 import useInterval from '../../hooks/useInterval';
 import useKeyCallback from '../../hooks/useKeyCallback';
+import useResize from '../../hooks/useResize';
 import Swipeable from '../../components/Swipeable';
 import cn from 'classnames';
 import styles from './index.module.scss';
-// import useResize from '../../hooks/useResize';
 
 const TRANSITION_DURATION = '300ms';
 const SLIDE_INTERVAL = 4000;
 
 const DEFAULT_STATE = {
   slidePositions: [],
-  isSlideTransitioning: [],
+  isTransitioning: false,
   activeSlide: 0,
   isAutoSlidingActive: true,
   isSwipingStarted: false
@@ -68,6 +68,10 @@ export interface Props {
    * Callback, called when the slide is changed
    */
   onSlideChange?: (activeSlide?: number) => void;
+  /**
+   * Top / bottom padding of the slides to the carousel component.
+   */
+  slideVerticalPadding?: number;
 }
 
 /**
@@ -85,7 +89,7 @@ export interface Props {
  *   &lt;div data-key="another-key"&gt;This is another slide&lt;/div&gt; <br />
  * &lt;/Carousel&gt; <br />
  */
-const Carousel = ({ children, className, slideClassName, autoRotate, enableKeyNavigation, initialActiveSlide = 0, indicatorComponent, prevSlideComponent, nextSlideComponent, onSlideChange }: Props) => {
+const Carousel = ({ children, className, slideClassName, autoRotate, enableKeyNavigation, initialActiveSlide = 0, indicatorComponent, prevSlideComponent, nextSlideComponent, onSlideChange, slideVerticalPadding = 0 }: Props) => {
   const carouselRef = useRef<any>();
 
   const defaultState = {
@@ -93,23 +97,28 @@ const Carousel = ({ children, className, slideClassName, autoRotate, enableKeyNa
     activeSlide: initialActiveSlide
   };
 
-  // useResize(() => {
-  //   const slides = carouselRef.current.querySelectorAll('[data-slide]');
-  //   let maxHeight = 0;
+  /**
+   * Sets the slidesWrapper height in pixels based on the highest slide.
+   */
+  useResize(() => {
+    setTimeout(() => {
+      const slideWrapper = carouselRef.current.querySelector('[data-slide-wrapper]');
+      const slides = carouselRef.current.querySelectorAll('[data-slide]');
+      let maxHeight = 0;
 
-  //   slides.forEach((slide: any) => {
-  //     const children = [].slice.call(slide.children);
+      slides.forEach((slide: any) => {
+        const children = [].slice.call(slide.children);
 
-  //     const height = children.reduce((currentResult: number, child: any) => (
-  //       currentResult + child.offsetHeight
-  //     ), 0);
+        const height = children.reduce((currentResult: number, child: any) => (
+          currentResult + child.offsetHeight
+        ), 0);
 
-  //     slide.style.height = `${height}px`;
-  //     maxHeight = Math.max(maxHeight, height);
-  //   });
+        maxHeight = Math.max(maxHeight, height);
+      });
 
-  //   carouselRef.current.style.height = `${maxHeight}px`;
-  // })
+      slideWrapper.style.height = `${maxHeight + slideVerticalPadding * 2}px`;
+    }, 50);
+  });
 
   const reducer = (state: any = defaultState, action: any) => {
     switch (action.type) {
@@ -118,54 +127,48 @@ const Carousel = ({ children, className, slideClassName, autoRotate, enableKeyNa
           ...state,
           slidePositions: children.map((child, i) => (
             i < state.activeSlide
-              ? '-100%' : i > state.activeSlide
-                ? '100%' : 0
+              ? `${-100 * (state.activeSlide - i)}%`
+              : i > state.activeSlide ? `${100 * (i - state.activeSlide)}%` : 0
           ))
         };
 
       case ACTIONS.GO_TO_PREV_SLIDE:
         return {
           ...state,
-          isSlideTransitioning: children.map((item, i) => (
-            i === state.activeSlide || state.activeSlide - 1 === i
-          )),
+          isTransitioning: true,
           activeSlide: Math.max(0, state.activeSlide - 1)
         };
 
       case ACTIONS.GO_TO_NEXT_SLIDE:
         return {
           ...state,
-          isSlideTransitioning: children.map((item, i) => (
-            i === state.activeSlide || i === state.activeSlide + 1
-          )),
+          isTransitioning: true,
           activeSlide: Math.min(children.length - 1, state.activeSlide + 1)
         };
 
       case ACTIONS.GO_TO_SLIDE:
         return {
           ...state,
-          isSlideTransitioning: children.map((item, i) => (
-            i === state.activeSlide || i === action.slide
-          )),
+          isTransitioning: true,
           activeSlide: action.slide
         };
 
       case ACTIONS.SWIPE: {
-        // @ts-ignore
-        const width = carouselRef.current.offsetWidth;
+        const slides = carouselRef.current.querySelectorAll('[data-slide]');
+        const width = slides[0].offsetWidth;
 
         if (!state.isSwipingStarted) {
-          const slidePositions = state.slidePositions.map((position: any) => (
-            position === '-100%'
-              ? `-${width}px`
-              : position === '100%' ? `${width}px` : 0
+          const slidePositions = children.map((child, i) => (
+            i < state.activeSlide
+              ? `-${width * (state.activeSlide - i)}px`
+              : i > state.activeSlide ? `${width * (i - state.activeSlide)}px` : 0
           ));
 
           return {
             ...state,
             slidePositions: [...slidePositions],
             initialSlidePositions: [...slidePositions],
-            isSlideTransitioning: children.map(() => false),
+            isTransitioning: false,
             isSwipingStarted: true,
             isAutoSlidingActive: false
           };
@@ -173,21 +176,19 @@ const Carousel = ({ children, className, slideClassName, autoRotate, enableKeyNa
 
         return {
           ...state,
-          slidePositions: state.initialSlidePositions.map((position: any, i: number) => (
-            i === state.activeSlide || i === state.activeSlide - 1 || i === state.activeSlide + 1
-              ? `${parseInt(position) + action.deltaX}px`
-              : position
+          slidePositions: state.initialSlidePositions.map((position: any) => (
+            `${parseInt(position) + action.deltaX}px`
           ))
         };
       }
 
       case ACTIONS.SWIPE_ENDED: {
-        // @ts-ignore
-        const width = carouselRef.current.offsetWidth;
+        const slides = carouselRef.current.querySelectorAll('[data-slide]');
+        const width = slides[0].offsetWidth;
 
-        const activeSlide = parseInt(state.slidePositions[state.activeSlide]) < -width / 4
+        const activeSlide = parseInt(state.slidePositions[state.activeSlide]) < -width / 6
           ? Math.min(children.length - 1, state.activeSlide + 1)
-          : parseInt(state.slidePositions[state.activeSlide]) > width / 4
+          : parseInt(state.slidePositions[state.activeSlide]) > width / 6
             ? Math.max(0, state.activeSlide - 1)
             : state.activeSlide;
 
@@ -200,13 +201,11 @@ const Carousel = ({ children, className, slideClassName, autoRotate, enableKeyNa
         return {
           ...state,
           activeSlide,
-          isSlideTransitioning: children.map((item, i) => (
-            i === activeSlide - 1 || i === activeSlide || i === activeSlide + 1
-          )),
+          isTransitioning: true,
           slidePositions: children.map((child, i) => (
-            i < activeSlide
-              ? '-100%' : i > activeSlide
-                ? '100%' : 0
+            i < state.activeSlide
+              ? `${-100 * (state.activeSlide - i)}%`
+              : i > state.activeSlide ? `${100 * (i - state.activeSlide)}%` : 0
           )),
           isSwipingStarted: false,
           isAutoSlidingActive: true,
@@ -309,14 +308,14 @@ const Carousel = ({ children, className, slideClassName, autoRotate, enableKeyNa
 
   return (
     <div className={cn(styles.carousel, { [className as string]: !!className })} ref={carouselRef}>
-      <div className={styles.slides}>
+      <div className={styles.slides} data-slide-wrapper>
         {children.map((child, i) => (
           <Swipeable
             key={child.props['data-key']}
             className={cn(styles.slide, { [slideClassName as string]: !!slideClassName })}
             style={{
               transform: `translateX(${state.slidePositions[i]})`,
-              transitionDuration: `${state.isSlideTransitioning[i] ? TRANSITION_DURATION : '0ms'}`
+              transitionDuration: `${state.isTransitioning ? TRANSITION_DURATION : '0ms'}`
             }}
             onSwipingHorizontally={onSwipingHorizontally}
             onSwiped={onSwiped}

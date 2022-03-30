@@ -1,16 +1,17 @@
 .carousel {
   position: relative;
+  overflow: hidden;
+}
 
-  .slides {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+.slides {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
 
-    .slide {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-    }
-  }
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
