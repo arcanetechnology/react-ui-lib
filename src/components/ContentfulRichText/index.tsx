@@ -33,6 +33,14 @@ const renderOptions = (links: any) => {
           )
         }
 
+        if (asset.contentType.indexOf('pdf') !== -1 && asset.title) {
+          return (
+            <p>
+              <a href={asset.url} target="_blank" rel="noreferrer">{asset.title}</a>
+            </p>
+          )
+        }
+
         return (
           <div data-richimage className={styles.image}>
             <img src={asset.url} alt="" />
