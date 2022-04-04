@@ -1,5 +1,6 @@
 import CookiePopup from '../../components/CookiePopup';
 import React, { useEffect, useState } from 'react';
+import useAfterLoad from '../../hooks/useAfterLoad';
 
 interface GoogleAnalyticsComponentProps {
   /**
@@ -34,6 +35,7 @@ export interface Props {
  */
 export default function CookiePopupWithStorage({ GoogleAnalyticsComponent, firebaseMeasurementId }: Props) {
   const [productDevCookieChoice, setProductDevCookieChoice] = useState<undefined | 'YES' | 'NO'>(undefined);
+  const isAfterLoad = useAfterLoad({ delay: 600 });
 
   useEffect(() => {
     const cookieChoice = localStorage.cookieChoice ? JSON.parse(localStorage.cookieChoice) : {};
@@ -57,7 +59,7 @@ export default function CookiePopupWithStorage({ GoogleAnalyticsComponent, fireb
 
   return (
     <>
-      <CookiePopup isOpen={productDevCookieChoice === undefined} onChoiceSelected={onChoiceSelected} />
+      <CookiePopup isOpen={isAfterLoad && productDevCookieChoice === undefined} onChoiceSelected={onChoiceSelected} />
       {productDevCookieChoice && (
         <GoogleAnalyticsComponent
           firebaseMeasurementId={firebaseMeasurementId}
