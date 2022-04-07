@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import ScrollOut from 'scroll-out';
+import useWillMount from '../../hooks/useWillMount';
 import './scroll-out.scss';
 
 const MOBILE_WIDTH = 839;
@@ -18,6 +19,15 @@ export interface Props {
  * Uses: https://scroll-out.github.io/
  */
 export default function ScrollOutProvider({ children }: Props) {
+  useWillMount({
+    onWillMount: () => {
+      document.body.classList.add('scroll-out-provider');
+    },
+    onUnmount: () => {
+      document.body.classList.remove('scroll-out-provider');
+    }
+  });
+
   useEffect(() => {
     ScrollOut({
       threshold: (element: HTMLElement, ctx: any) => {
