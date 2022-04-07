@@ -1,0 +1,13 @@
+@import '../../vars.scss';
+
+.sectionWrapper {
+  margin-top: 200px;
+
+  @media (max-width: $tablet-width) {
+    margin-top: 128px;
+  }
+
+  @media (max-width: $mobile-width) {
+    margin-top: 88px;
+  }
+}

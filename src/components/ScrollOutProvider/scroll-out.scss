@@ -1,0 +1,26 @@
+$zease: cubic-bezier(0.165, 0.84, 0.44, 1);
+
+[data-scroll] {
+  opacity: 0.01;
+  will-change: transform, scale, opacity;
+  transform: translateY(30px) scale(0.98);
+  transform-origin: center bottom;
+  transition: all 1.5s $zease;
+}
+
+[data-scroll="in"] {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+[data-scroll="out"][data-viewport="bottom"] {
+  opacity: 0.01;
+  transform: translateY(30px) scale(0.98);
+  transform-origin: center bottom;
+}
+
+[data-scroll="out"][data-viewport="top"] {
+  opacity: 0.01;
+  transform: translateY(-30px) scale(0.98);
+  transform-origin: center top;
+}

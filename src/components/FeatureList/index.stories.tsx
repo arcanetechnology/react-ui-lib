@@ -4,7 +4,7 @@ import FeatureList, { Props } from './index';
 import Button from '../Button';
 
 export default {
-  title: 'Components/FeatureList',
+  title: 'Page/FeatureList',
   component: FeatureList,
 } as Meta;
 

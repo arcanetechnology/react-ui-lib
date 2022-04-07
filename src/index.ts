@@ -15,6 +15,8 @@ import Popup from './components/Popup';
 import CookiePopupWithStorage from './components/CookiePopupWithStorage';
 import FeatureList from './components/FeatureList';
 import PageHero from './components/PageHero';
+import PageSectionWrapper from './components/PageSectionWrapper';
+import ScrollOutProvider from './components/ScrollOutProvider';
 import Carousel from './components/Carousel';
 import DotNavigation from './components/Carousel/DotNavigation';
 
@@ -41,6 +43,8 @@ export {
   CookiePopupWithStorage,
   FeatureList,
   PageHero,
+  PageSectionWrapper,
+  ScrollOutProvider,
   Carousel,
   DotNavigation,
 
