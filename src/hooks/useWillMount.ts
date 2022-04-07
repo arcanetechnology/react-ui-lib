@@ -11,7 +11,7 @@ interface Props {
 const useWillMount = ({ onWillMount, onUnmount }: Props) => {
   const willMount = useRef(true);
 
-  if (willMount.current) {
+  if (willMount.current && typeof window !== 'undefined') {
     onWillMount();
   }
 
