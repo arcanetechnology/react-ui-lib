@@ -9,7 +9,7 @@ export interface Props {
   /**
    * Children that can be affected by scroll-out animations.
    */
-  children: React.ReactNode | any;
+  children: React.ReactNode;
   /**
    * Additional className for the wrapper &lt;div&gt;.
    */
