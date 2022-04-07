@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
+import cn from 'classnames';
 import ScrollOut from 'scroll-out';
-import useWillMount from '../../hooks/useWillMount';
-import './scroll-out.scss';
+import styles from './index.module.scss';
 
 const MOBILE_WIDTH = 839;
 
@@ -10,6 +10,10 @@ export interface Props {
    * Children that can be affected by scroll-out animations.
    */
   children: React.ReactNode | any;
+  /**
+   * Additional className for the wrapper &lt;div&gt;.
+   */
+  className?: string;
 }
 
 /**
@@ -18,16 +22,7 @@ export interface Props {
  *
  * Uses: https://scroll-out.github.io/
  */
-export default function ScrollOutProvider({ children }: Props) {
-  useWillMount({
-    onWillMount: () => {
-      document.body.classList.add('scroll-out-provider');
-    },
-    onUnmount: () => {
-      document.body.classList.remove('scroll-out-provider');
-    }
-  });
-
+export default function ScrollOutProvider({ children, className, ...props }: Props) {
   useEffect(() => {
     ScrollOut({
       threshold: (element: HTMLElement, ctx: any) => {
@@ -43,6 +38,8 @@ export default function ScrollOutProvider({ children }: Props) {
   }, []);
 
   return (
-    children
+    <div className={cn(styles.scrollOutProvider, { [className as string]: !!className } )} {...props}>
+      {children}
+    </div>
   );
 }

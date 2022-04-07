@@ -1,6 +1,6 @@
 $zease: cubic-bezier(0.165, 0.84, 0.44, 1);
 
-body.scroll-out-provider {
+.scrollOutProvider {
   [data-scroll] {
     opacity: 0.01;
     will-change: transform, scale, opacity;
