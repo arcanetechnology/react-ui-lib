@@ -57,7 +57,8 @@ export default function TopBar({ homeUrl, origin, activeItem, appLogo, noAuthBut
     setIsSmall(offset > STICKY_THRESHOLD);
   });
 
-  const toggleMenu = () => {
+  const toggleMenu = (e: any) => {
+    e.stopPropagation();
     setIsMenuOpen((state) => !state);
   }
 
