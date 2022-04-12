@@ -24,6 +24,10 @@
     border-radius: 16px;
     backdrop-filter: blur(40px);
 
+    &:not(.fullscreen) {
+      max-height: 80vh;
+    }
+
     &.fullscreen {
       width: 100vw;
       height: 100vh;
