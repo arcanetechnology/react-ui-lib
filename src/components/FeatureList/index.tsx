@@ -15,6 +15,10 @@ export interface Props {
    */
   renderButton?: (button: any) => React.ReactNode;
   /**
+   * Prevents the scroll-out animation.
+   */
+  noScrollAnimation?: boolean;
+  /**
    * An additional class name for the section.
    */
   className?: string;
@@ -41,7 +45,7 @@ interface Item {
  *
  * The button can be of any type or value. If provided, the renderButton function should also be provided to render the button.
  */
-export default function FeatureList({ content, renderButton, className }: Props) {
+export default function FeatureList({ content, renderButton, noScrollAnimation, className }: Props) {
   const renderImage = (item: Item) => (
     <Child marketingImage>
       <ContentfulImage image={item.image} w={600} showDescription={false} />
@@ -78,6 +82,7 @@ export default function FeatureList({ content, renderButton, className }: Props)
           key={item.title || index}
           className={className}
           data-testid="FeatureList"
+          noScrollAnimation={noScrollAnimation}
         >
           {index % 2 === 0
             ? (

@@ -11,14 +11,22 @@ interface Props {
    */
   columnReverse?: Boolean;
   /**
+   * Prevents the scroll-out animation.
+   */
+  noScrollAnimation?: boolean;
+  /**
    * An additional class name for the section.
    */
   className?: string;
 };
 
-export default function Section({ children, columnReverse, className, ...props }: Props) {
+export default function Section({ children, columnReverse, className, noScrollAnimation, ...props }: Props) {
   return (
-    <div className={cn(styles.section, { [className as string]: !!className })} data-scroll {...props}>
+    <div
+      className={cn(styles.section, { [className as string]: !!className })}
+      {...(noScrollAnimation ? {} : { 'data-scroll': true })}
+      {...props}
+    >
       <div className={cn(styles.content, { [styles.columnReverse]: !!columnReverse })}>
         {children}
       </div>

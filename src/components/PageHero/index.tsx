@@ -9,17 +9,21 @@ export interface Props {
    * Hero subtitle.
    */
   subtitle?: string;
+  /**
+   * Prevents the scroll-out animation.
+   */
+  noScrollAnimation?: boolean;
 }
 
 /**
  * Hero section.
  */
-export default function PageHero({ title, subtitle }: Props) {
+export default function PageHero({ title, subtitle, noScrollAnimation }: Props) {
   return (
     <div
       className={styles.pageHero}
       data-testid="Hero"
-      data-scroll
+      {...(noScrollAnimation ? {} : { 'data-scroll': true })}
     >
       <h1 className={styles.title}>{title}</h1>
 
