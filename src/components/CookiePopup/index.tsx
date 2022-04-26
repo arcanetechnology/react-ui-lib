@@ -74,7 +74,7 @@ export default function CookiePopup({ isOpen, onChoiceSelected }: Props) {
         </div>
       </div>
 
-      <Button small className={styles.saveButton} onClick={onSave}>Save settings</Button>
+      <Button small className={styles.saveButton} onClick={onSave} data-testid="save-cookie-settings">Save settings</Button>
     </Popup>
   );
 }
