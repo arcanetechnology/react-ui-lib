@@ -40,7 +40,7 @@ export default function Popup({ isOpen, overlayClassName, fullscreen, showCloseI
   return (
     <Overlay className={overlayClassName} isOpen={isOpen}>
       <div className={styles.popupOverlay}>
-        <div className={cn(styles.popup, { [styles.fullscreen as string] : fullscreen })}>
+        <div className={cn(styles.popup, { [styles.fullscreen as string] : fullscreen })} data-testid="popup">
           {showCloseIcon && (
             <ClickableIcon className={styles.close} onClick={onClose}>
               <Close />
