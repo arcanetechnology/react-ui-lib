@@ -61,12 +61,15 @@ $top-bar-sticky-height: 88px;
   }
 
   .menuWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
     top: 50%;
     right: 230px;
     transform: translateY(-50%);
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
     line-height: 0;
     border-radius: 100%;
     z-index: 1000;
@@ -88,12 +91,12 @@ $top-bar-sticky-height: 88px;
       right: 4px;
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: #f0f0f0;
     }
 
     &.open {
-      display: block;
       background-color: #d9d9db;
 
       .menu {

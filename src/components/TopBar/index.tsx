@@ -62,6 +62,12 @@ export default function TopBar({ homeUrl, origin, activeItem, appLogo, noAuthBut
     setIsMenuOpen((state) => !state);
   }
 
+  const onGridKeyDown = (e: any) => {
+    if (e.key === " " || e.key === "Enter" || e.key === "Spacebar") {
+      toggleMenu(e);
+    }
+  }
+
   return (
     <>
       {isSticky && (
@@ -71,9 +77,12 @@ export default function TopBar({ homeUrl, origin, activeItem, appLogo, noAuthBut
       <div className={cn(styles.topBar, { [styles.sticky]: isSticky, [styles.isSmall]: isSmall })} data-testid="topBar">
         <ArcaneLogo homeUrl={homeUrl} appLogo={appLogo} logoClassName={cn(styles.logo, { [styles.withAppLogo]: !!appLogo })} />
 
-        <button
+        <div
+          role="button"
+          tabIndex={0}
           className={cn(styles.menuWrapper, { [styles.open]: isMenuOpen, [styles.noAuthButton]: noAuthButton })}
           onClick={toggleMenu}
+          onKeyDown={onGridKeyDown}
           data-testid="grid"
         >
           <GridMenu />
@@ -90,7 +99,7 @@ export default function TopBar({ homeUrl, origin, activeItem, appLogo, noAuthBut
               <SignInSignOutButton authWithRedirect={authWithRedirect} className={styles.authInGrid} />
             )}
           </div>
-        </button>
+        </div>
 
         {!noAuthButton && (
           <SignInSignOutButton authWithRedirect={authWithRedirect} className={styles.authButton} />
