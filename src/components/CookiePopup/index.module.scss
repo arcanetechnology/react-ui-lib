@@ -11,6 +11,10 @@
     line-height: 40px;
     color: #090A0B;
 
+    &.titleSecondPage {
+      margin-left: 8px;
+    }
+
     @media (max-width: $mobile-width) {
       font-size: 24px;
       line-height: 32px;
@@ -18,25 +22,23 @@
   }
 }
 
-.text {
-  margin-top: 8px;
-  font-size: 14px;
-  line-height: 16px;
+.introText {
+  margin: 24px 0;
+  font-size: 16px;
+  line-height: 24px;
   color: #868E96;
 
   a {
-    color: #090A0B;
+    color: #868E96;
     text-decoration: underline;
   }
 }
 
 .settings {
-  margin-top: 16px;
-  padding-top: 24px;
-  border-top: 1px solid #DEE2E6;
+  padding-bottom: 16px;
 
   .setting {
-    margin-bottom: 32px;
+    margin-bottom: 16px;
 
     .settingTitle {
       display: flex;
@@ -45,18 +47,23 @@
 
       .settingTitleText {
         font-weight: 500;
-        font-size: 24px;
-        line-height: 32px;
+        font-size: 16px;
+        line-height: 24px;
         color: #090A0B;
       }
     }
 
     .text {
+      margin-top: 4px;
       max-width: 334px;
+      font-size: 14px;
+      line-height: 16px;
+      color: #868E96;
     }
   }
 }
 
-.saveButton {
-  width: 100%;
+.buttons {
+  display: flex;
+  justify-content: space-between;
 }

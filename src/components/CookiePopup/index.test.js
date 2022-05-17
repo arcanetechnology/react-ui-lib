@@ -16,6 +16,26 @@ describe('CookiePopup', () => {
     );
 
     expect(getByText('Cookie Settings')).toBeInTheDocument();
-    expect(getByText('Save settings')).toBeInTheDocument();
+    expect(getByText('Allow Cookies')).toBeInTheDocument();
+  });
+
+  test('goes to the second page when the Manage Cookies button is clicked', async () => {
+    const component = render(
+      <ArcaneUIProvider
+        PortalComponent={({ children }) => (
+          ReactDOM.createPortal(children, document.body)
+        )}
+        LinkComponent={({ ...props }) => (
+          <a {...props} />
+        )}
+      >
+        <CookiePopup />
+      </ArcaneUIProvider>
+    );
+
+    const saveButton = component.getByText('Manage Cookies');
+    saveButton.click();
+
+    expect(component.getByText('Product Development')).toBeInTheDocument();
   });
 });

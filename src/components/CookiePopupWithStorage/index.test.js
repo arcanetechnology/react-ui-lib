@@ -24,9 +24,9 @@ describe('CookiePopupWithStorage', () => {
     expect(() => component.getByText('GoogleAnalyticsComponent')).toThrow();
 
     expect(component.getByText('Cookie Settings')).toBeInTheDocument();
-    expect(component.getByText('Save settings')).toBeInTheDocument();
+    expect(component.getByText('Allow Cookies')).toBeInTheDocument();
 
-    const saveButton = component.getByText('Save settings');
+    const saveButton = component.getByText('Allow Cookies');
     saveButton.click();
 
     expect(JSON.parse(localStorage.cookieChoice).productDevCookie === 'YES').toBeTruthy();

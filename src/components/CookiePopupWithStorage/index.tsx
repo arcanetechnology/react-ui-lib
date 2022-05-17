@@ -27,7 +27,7 @@ export interface Props {
 
 /**
  * This component renders the <CookiePopup> only when the user has not yet made a choice.
- * Once made, the chouce is remembered in localStorage.cookieChoice and the &lt;GoogleAnalyticsComponent&gt; component is rendered.
+ * Once made, the choice is remembered in localStorage.cookieChoice and the &lt;GoogleAnalyticsComponent&gt; component is rendered.
  *
  * The &lt;GoogleAnalyticsComponent&gt; component should implement all scripts that include Google Analytics (and potentially any other cookie-related scripts in the future).
  *
