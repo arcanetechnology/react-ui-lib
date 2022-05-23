@@ -34,8 +34,6 @@ export default function ContentfulImage({ image, w, svgToPng, showDescription = 
 
   const convertToPng = svgToPng && image.url.toLowerCase().endsWith('.svg');
 
-  console.log('image', image);
-
   const imageUrl = w || convertToPng
     ? `${image.url}?${w ? `w=${w}` : ''}${convertToPng ? '&fm=png' : ''}`
     : image.url
