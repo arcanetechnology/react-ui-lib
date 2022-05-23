@@ -15,6 +15,10 @@ export interface Props {
    */
   w?: Number;
   /**
+   * Indicates if the image should be converted to png if it is svg.
+   */
+  svgToPng?: boolean;
+  /**
    * Set to `false` to prevent displaying the image description next to the image.
    */
   showDescription?: boolean;
@@ -23,12 +27,24 @@ export interface Props {
 /**
  * Renders an image fetched from Contentful.
  */
-export default function ContentfulImage({ image, w, showDescription = true, ...props }: Props) {
+export default function ContentfulImage({ image, w, svgToPng, showDescription = true, ...props }: Props) {
+  if (!image) {
+    return null;
+  }
+
+  const convertToPng = svgToPng && image.url.toLowerCase().endsWith('.svg');
+
+  console.log('image', image);
+
+  const imageUrl = w || convertToPng
+    ? `${image.url}?${w ? `w=${w}` : ''}${convertToPng ? '&fm=png' : ''}`
+    : image.url
+
   return (
     image
       ? (
         <>
-          <img src={`${image.url}${w ? `?w=${w}` : ''}`} alt={image.title} title={image.description} {...props} />
+          <img src={imageUrl} alt={image.title} title={image.description} {...props} />
           {showDescription && (
             <div className={styles.description} data-richtextimagedescription>{image.description}</div>
           )}

@@ -8,7 +8,8 @@ export default {
   component: ContentfulImage,
   argTypes: {
     w: { control: 'number' },
-    showDescription: { control: 'boolean', defaultValue: true }
+    showDescription: { control: 'boolean', defaultValue: true },
+    svgToPng: { control: 'boolean', defaultValue: false }
   }
 } as Meta;
 
@@ -24,5 +25,6 @@ export const FixedWidth = Template.bind({});
 
 FixedWidth.args = {
   image: imageData,
-  w: 300
+  w: 300,
+  svgToPng: true
 };
