@@ -75,35 +75,37 @@ export default function TopBar({ homeUrl, origin, activeItem, appLogo, noAuthBut
       )}
 
       <div className={cn(styles.topBar, { [styles.sticky]: isSticky, [styles.isSmall]: isSmall })} data-testid="topBar">
-        <ArcaneLogo homeUrl={homeUrl} appLogo={appLogo} logoClassName={cn(styles.logo, { [styles.withAppLogo]: !!appLogo })} />
+        <div className={styles.topBarContent}>
+          <ArcaneLogo homeUrl={homeUrl} appLogo={appLogo} logoClassName={cn(styles.logo, { [styles.withAppLogo]: !!appLogo })} />
 
-        <div
-          role="button"
-          tabIndex={0}
-          className={cn(styles.menuWrapper, { [styles.open]: isMenuOpen, [styles.noAuthButton]: noAuthButton })}
-          onClick={toggleMenu}
-          onKeyDown={onGridKeyDown}
-          data-testid="grid"
-        >
-          <GridMenu />
+          <div
+            role="button"
+            tabIndex={0}
+            className={cn(styles.menuWrapper, { [styles.open]: isMenuOpen, [styles.noAuthButton]: noAuthButton })}
+            onClick={toggleMenu}
+            onKeyDown={onGridKeyDown}
+            data-testid="grid"
+          >
+            <GridMenu />
 
-          <div className={styles.menu} data-grid-menu={true}>
-            <Menu
-              origin={origin}
-              isOpen={isMenuOpen}
-              onClose={() => { setIsMenuOpen(false); }}
-              activeItem={activeItem}
-            />
+            <div className={styles.menu} data-grid-menu={true}>
+              <Menu
+                origin={origin}
+                isOpen={isMenuOpen}
+                onClose={() => { setIsMenuOpen(false); }}
+                activeItem={activeItem}
+              />
 
-            {!noAuthButton && (
-              <SignInSignOutButton authWithRedirect={authWithRedirect} className={styles.authInGrid} />
-            )}
+              {!noAuthButton && (
+                <SignInSignOutButton authWithRedirect={authWithRedirect} className={styles.authInGrid} />
+              )}
+            </div>
           </div>
-        </div>
 
-        {!noAuthButton && (
-          <SignInSignOutButton authWithRedirect={authWithRedirect} className={styles.authButton} />
-        )}
+          {!noAuthButton && (
+            <SignInSignOutButton authWithRedirect={authWithRedirect} className={styles.authButton} />
+          )}
+        </div>
       </div>
     </>
   );
