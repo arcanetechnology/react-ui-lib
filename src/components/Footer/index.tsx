@@ -49,67 +49,69 @@ export default function Footer({ homeUrl, origin, activeLink, appLogo, hideResea
   return (
     <div className={styles.footer}>
       <div className={styles.main}>
-        <div className={styles.logoWrapper}>
-          <ArcaneLogo homeUrl={homeUrl} appLogo={appLogo} onDark />
+        <div className={styles.mainContent}>
+          <div className={styles.logoWrapper}>
+            <ArcaneLogo homeUrl={homeUrl} appLogo={appLogo} onDark />
+          </div>
+
+          <ul className={styles.menuList}>
+            <li className={styles.menu}>
+              <div className={styles.title}>Menu</div>
+
+              <div className={styles.links}>
+                <FooterLink white active={activeLink === LINKS.PLATFORM}>
+                  <LinkComponent href={origin}>
+                    Platform
+                  </LinkComponent>
+                </FooterLink>
+
+                {!hideResearch ? (
+                  <FooterLink white active={activeLink === LINKS.RESEARCH}>
+                    <LinkComponent href={`${origin}/research`}>
+                      Research
+                    </LinkComponent>
+                  </FooterLink>
+                ) : (
+                  <FooterLink white active={activeLink === LINKS.LEARN}>
+                    <LinkComponent href={`${origin}/learn`}>
+                      Learn
+                    </LinkComponent>
+                  </FooterLink>
+                )}
+
+                <FooterLink white active={activeLink === LINKS.TRADE}>
+                  <LinkComponent href={`${origin}/trade`}>
+                    Trade
+                  </LinkComponent>
+                </FooterLink>
+
+                <FooterLink white active={activeLink === LINKS.INVEST}>
+                  <LinkComponent href={`${origin}/invest`}>
+                    Invest
+                  </LinkComponent>
+                </FooterLink>
+              </div>
+            </li>
+
+            <li className={styles.menu}>
+              <div className={styles.title}>Company</div>
+
+              <div className={styles.links}>
+                <FooterLink white active={activeLink === LINKS.PEOPLE}>
+                  <LinkComponent href={`${origin}/people`}>People</LinkComponent>
+                </FooterLink>
+
+                <FooterLink white>
+                  <LinkComponent href="https://investor.arcanecrypto.se/news/" target="_blank">Investor Relations</LinkComponent>
+                </FooterLink>
+
+                <FooterLink white active={activeLink === LINKS.PRIVACY}>
+                  <LinkComponent href={`${origin}/privacy`}>Privacy</LinkComponent>
+                </FooterLink>
+              </div>
+            </li>
+          </ul>
         </div>
-
-        <ul className={styles.menuList}>
-          <li className={styles.menu}>
-            <div className={styles.title}>Menu</div>
-
-            <div className={styles.links}>
-              <FooterLink white active={activeLink === LINKS.PLATFORM}>
-                <LinkComponent href={origin}>
-                  Platform
-                </LinkComponent>
-              </FooterLink>
-
-              {!hideResearch ? (
-                <FooterLink white active={activeLink === LINKS.RESEARCH}>
-                  <LinkComponent href={`${origin}/research`}>
-                    Research
-                  </LinkComponent>
-                </FooterLink>
-              ) : (
-                <FooterLink white active={activeLink === LINKS.LEARN}>
-                  <LinkComponent href={`${origin}/learn`}>
-                    Learn
-                  </LinkComponent>
-                </FooterLink>
-              )}
-
-              <FooterLink white active={activeLink === LINKS.TRADE}>
-                <LinkComponent href={`${origin}/trade`}>
-                  Trade
-                </LinkComponent>
-              </FooterLink>
-
-              <FooterLink white active={activeLink === LINKS.INVEST}>
-                <LinkComponent href={`${origin}/invest`}>
-                  Invest
-                </LinkComponent>
-              </FooterLink>
-            </div>
-          </li>
-
-          <li className={styles.menu}>
-            <div className={styles.title}>Company</div>
-
-            <div className={styles.links}>
-              <FooterLink white active={activeLink === LINKS.PEOPLE}>
-                <LinkComponent href={`${origin}/people`}>People</LinkComponent>
-              </FooterLink>
-
-              <FooterLink white>
-                <LinkComponent href="https://investor.arcanecrypto.se/news/" target="_blank">Investor Relations</LinkComponent>
-              </FooterLink>
-
-              <FooterLink white active={activeLink === LINKS.PRIVACY}>
-                <LinkComponent href={`${origin}/privacy`}>Privacy</LinkComponent>
-              </FooterLink>
-            </div>
-          </li>
-        </ul>
       </div>
 
       <div className={styles.bottom}>
