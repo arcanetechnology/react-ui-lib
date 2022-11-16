@@ -67,6 +67,8 @@ This component library aims to unify the UI and front-end functionality across t
       );
     }
     ```
+    * Note: Having an `a` tag inside the `Link` component is no longer necessary starting from Next.js 13.
+
   - You can also use the basic &lt;a&gt; tag (e.g. for unit tests)
     ```javascript
     <ArcaneUIProvider LinkComponent={({...props}) => (<a {...props} />)}>
