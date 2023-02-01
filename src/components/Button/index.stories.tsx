@@ -1,6 +1,7 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import Button, { Props } from './index';
+import DownloadDark from '../../svg/DownloadDark';
 
 export default {
   title: 'Components/Button',
@@ -41,4 +42,13 @@ Clickable.args = {
   children: 'Click me!',
   onDark: false,
   onClick: () => { alert('Button is clicked!'); }
+};
+
+export const SecondaryWithCustomIcon = Template.bind({});
+
+SecondaryWithCustomIcon.args = {
+  children: 'Download',
+  secondary: true,
+  iconRight: <DownloadDark />,
+  onDark: false,
 };

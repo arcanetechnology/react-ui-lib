@@ -4,7 +4,7 @@
   "module": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "main": "./lib/index.cjs.js",
-  "version": "1.9.0",
+  "version": "1.9.1",
   "private": false,
   "files": [
     "lib",
@@ -30,7 +30,7 @@
     "test": "react-scripts test",
     "test:generate-output": "react-scripts test --json --outputFile=.storybook/.jest-test-results.json --watchAll=false || true",
     "storybook:no-tests": "start-storybook -p 6006 -s public",
-    "storybook": "npm run test:generate-output && npm run storybook:no-tests",
+    "storybook": "npm run test:generate-output && export NODE_OPTIONS=--openssl-legacy-provider && npm run storybook:no-tests",
     "build-lib": "rm -rf lib && rollup -c",
     "build-static": "build-storybook",
     "predeploy-storybook": "npm run build-static",
